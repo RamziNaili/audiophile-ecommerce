@@ -1,7 +1,7 @@
 import './App.css';
 
 function App() {
-  return <div className="text-red-600">audiophile</div>;
+  return <div className="text-primary font-manrope">audiophile</div>;
 }
 
 export default App;
