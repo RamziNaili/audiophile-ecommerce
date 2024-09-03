@@ -1,7 +1,13 @@
 import './App.css';
+import { Button } from './components/Button';
 
 function App() {
-  return <div className="text-primary font-manrope">audiophile</div>;
+  return (
+    <div className="font-manrope">
+      audiophile
+      <Button>toto</Button>
+    </div>
+  );
 }
 
 export default App;
