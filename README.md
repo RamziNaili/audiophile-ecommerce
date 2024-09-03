@@ -1,3 +1,7 @@
+![Preview Image](https://rn-matcha.s3.eu-west-3.amazonaws.com/preview.jpg)
+
+
+
 # Audiophile E-commerce Website
 
 **Note**: This project is designed as a **portfolio piece** and is not intended for real-world use. It showcases my skills in frontend development.
@@ -19,4 +23,4 @@ This is a modern e-commerce platform for audiophiles, allowing users to browse a
 - **State Management**: React hooks and context API
 - **Build Tool**: Vite for fast development and optimized production builds
 
-![Preview Image](https://rn-matcha.s3.eu-west-3.amazonaws.com/preview.jpg)
+
