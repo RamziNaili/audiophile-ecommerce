@@ -18,3 +18,5 @@ This is a modern e-commerce platform for audiophiles, allowing users to browse a
 - **Styling**: Tailwind CSS
 - **State Management**: React hooks and context API
 - **Build Tool**: Vite for fast development and optimized production builds
+
+![Preview Image](https://rn-matcha.s3.eu-west-3.amazonaws.com/preview.jpg)
