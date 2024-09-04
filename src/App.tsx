@@ -1,12 +1,9 @@
 import "./App.css";
-import { Header } from "./components/Header";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./core/Router/Router";
 
 function App() {
-  return (
-    <div className="font-manrope">
-      <Header />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
