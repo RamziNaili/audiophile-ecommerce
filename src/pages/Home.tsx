@@ -1,5 +1,10 @@
 import { FC } from "react";
+import { HomeHero } from "../components/HomeHero";
 
 export const Home: FC = () => {
-  return <div>home</div>;
+  return (
+    <main>
+      <HomeHero />
+    </main>
+  );
 };
