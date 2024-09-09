@@ -9,7 +9,7 @@ export const HomeHero: FC = () => {
         sm:bg-[url('src/assets/home/tablet/image-header.jpg')]
         md:bg-[url('src/assets/home/desktop/image-hero.jpg')] bg-no-repeat bg-cover w-full`}
     >
-      <div className="h-[729px] w-3/4">
+      <div className="h-[730px] w-3/4">
         <Header />
         <div className="mt-32 flex flex-col items-center md:items-start">
           <p className="text-white/[.4964] tracking-[10px] ">NEW PRODUCT</p>

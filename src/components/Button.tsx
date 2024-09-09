@@ -10,7 +10,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
 }) => {
-  const baseStyles = "uppercase font-bold tracking-[1px]";
+  const baseStyles = "uppercase font-bold tracking-[1px] w-fit";
 
   const variantStyles = {
     full: "bg-primary hover:bg-light_orange text-white border-none px-[30px] py-[15px]",
