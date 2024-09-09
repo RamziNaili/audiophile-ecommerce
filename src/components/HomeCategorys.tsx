@@ -18,7 +18,7 @@ export const HomeCategorys: FC = () => {
   ];
 
   return (
-    <section className="flex justify-center mt-52 mb-96">
+    <section className="flex justify-center mt-24 md:mt-36 xl:mt-52">
       <ul className="flex flex-col md:flex-row gap-20 md:gap-2.5 lg:gap-7 items-center">
         {categorys.map((category) => (
           <li
