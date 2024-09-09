@@ -28,11 +28,7 @@ export const HomeBestsellers: FC = () => {
           see product
         </Button>
       </div>
-      <img
-        src="src/assets/home/mobile/image-earphones-yx1.jpg"
-        alt="earphones-yx1"
-        className="w-4/5 mt-6 rounded-[8px]"
-      />
+      <div className="w-4/5 h-[200px] mt-6 rounded-[8px] bg-[url('src/assets/home/mobile/image-earphones-yx1.jpg')] bg-cover" />
       <div className="mt-6 bg-gray pl-6 w-4/5 rounded-[8px]">
         <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
           YX1 EARPHONES
