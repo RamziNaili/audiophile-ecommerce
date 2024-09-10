@@ -1,5 +1,10 @@
-import { FC } from "react";
+import { FC } from 'react';
+import { ProductPages } from './ProductPages';
 
 export const Headphones: FC = () => {
-  return <div>headphone</div>;
+  return (
+    <main>
+      <ProductPages product="headphones" />
+    </main>
+  );
 };

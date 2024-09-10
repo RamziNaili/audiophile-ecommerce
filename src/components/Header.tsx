@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
-    <section className="flex justify-center h-24">
+    <section className={`flex justify-center h-24 `}>
       <div className="flex items-center justify-between w-full border-b border-white border-opacity-20">
         <div className="flex items-center gap-10">
           <BurgerMenu className="md:hidden" />
@@ -14,7 +14,7 @@ export const Header: FC = () => {
         </div>
         <nav className="flex text-white uppercase lg:gap-8 gap-3 max-md:hidden">
           <NavLink
-            to=""
+            to="/"
             className="hover:text-primary font-bold cursor-pointer"
           >
             home
