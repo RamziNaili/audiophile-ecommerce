@@ -9,7 +9,7 @@ export const Header: FC = () => {
     <section className={`flex justify-center h-24 border-b border-white/[.2]`}>
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-10">
-          <BurgerMenu className="md:hidden" />
+          <BurgerMenu className="md:hidden max-sm:ml-6" />
           <Logo />
         </div>
         <nav className="flex text-white uppercase lg:gap-8 gap-3 max-md:hidden">
@@ -38,7 +38,7 @@ export const Header: FC = () => {
             earphones
           </NavLink>
         </nav>
-        <Cart className="cursor-pointer" />
+        <Cart className="cursor-pointer max-sm:mr-6" />
       </div>
     </section>
   );

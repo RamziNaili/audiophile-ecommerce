@@ -10,7 +10,7 @@ export const ProductPages: FC<Props> = ({ product }) => {
     <section>
       <div className="bg-black">
         <div className="flex items-center justify-center">
-          <div className="w-5/6 lg:w-3/4">
+          <div className="w-full sm:w-5/6 lg:w-3/4">
             <Header />
           </div>
         </div>
