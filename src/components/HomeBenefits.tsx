@@ -9,7 +9,7 @@ export const HomeBenefits: FC = () => {
           alt="best-gear"
           className="w-5/6 rounded-[8px] h-auto md:order-2"
         />
-        <div className="flex flex-col items-center w-5/6">
+        <div className="flex flex-col items-center justify-center w-5/6">
           <h3 className="mt-10 text-center uppercase font-bold text-[28px] tracking-[1px]">
             Bringing you the <span className="text-primary">best </span>
             audio gear
