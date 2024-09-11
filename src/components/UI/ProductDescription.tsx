@@ -13,7 +13,7 @@ export const ProductDescription: FC<Props> = ({ product, index }) => {
   return (
     <div className="flex justify-center">
       <div
-        className={`flex flex-col lg:flex-row gap-[125px] justify-center mb-32 lg:w-3/4 ${
+        className={`flex flex-col lg:flex-row lg:gap-[125px] justify-center mb-32 lg:w-3/4 ${
           !isEvenIndex ? 'lg:flex-row-reverse' : ''
         }`}
       >

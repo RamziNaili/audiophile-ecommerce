@@ -1,30 +1,23 @@
 import { FC } from 'react';
 import { Header } from '../components/Header';
 import { HomeBenefits } from '../components/HomeBenefits';
-import products from '../assets/data.json';
 import { Product } from '../types/types';
 import { ProductDescription } from '../components/UI/ProductDescription';
 import { HomeCategorys } from '../components/HomeCategorys';
+import { getProductBySlug } from '../utils/utils';
 
 type Props = {
   product: 'headphones' | 'speakers' | 'earphones';
   productsToDisplaySlug: string[];
 };
 
-const getProductBySlug = (
-  slug: string,
-  productList: Product[]
-): Product | undefined => {
-  return productList.find((product) => product.slug === slug);
-};
-
 export const ProductPages: FC<Props> = ({ product, productsToDisplaySlug }) => {
   const foundProducts = productsToDisplaySlug
-    .map((slug) => getProductBySlug(slug, products))
+    .map((slug) => getProductBySlug(slug))
     .filter(Boolean) as Product[];
 
   return (
-    <section>
+    <main>
       <div className="bg-black mb-16 sm:mb-32">
         <div className="flex items-center justify-center">
           <div className="w-full sm:w-5/6 lg:w-3/4">
@@ -40,6 +33,6 @@ export const ProductPages: FC<Props> = ({ product, productsToDisplaySlug }) => {
       ))}
       <HomeCategorys />
       <HomeBenefits />
-    </section>
+    </main>
   );
 };

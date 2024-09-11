@@ -1,35 +1,40 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Layout } from "../../components/UI/Layout";
-import { Home } from "../../pages/Home";
-import { Earphones } from "../../pages/Earphones";
-import { Headphones } from "../../pages/Headphones";
-import { Speakers } from "../../pages/Speakers";
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { Layout } from '../../components/UI/Layout';
+import { Home } from '../../pages/Home';
+import { Earphones } from '../../pages/Earphones';
+import { Headphones } from '../../pages/Headphones';
+import { Speakers } from '../../pages/Speakers';
+import { ProductDetails } from '../../pages/ProductDetails';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: "",
+        path: '',
         element: <Home />,
       },
       {
-        path: "earphones",
+        path: 'earphones',
         element: <Earphones />,
       },
       {
-        path: "headphones",
+        path: 'headphones',
         element: <Headphones />,
       },
       {
-        path: "speakers",
+        path: 'speakers',
         element: <Speakers />,
+      },
+      {
+        path: ':productSlug',
+        element: <ProductDetails />,
       },
     ],
   },
   {
-    path: "*",
+    path: '*',
     element: <Navigate to="/" />,
   },
 ]);

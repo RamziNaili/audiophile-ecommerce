@@ -1,5 +1,5 @@
-import { Minus, Plus } from "lucide-react";
-import { FC, useState } from "react";
+import { Minus, Plus } from 'lucide-react';
+import { FC, useState } from 'react';
 
 export const Numbers: FC = () => {
   const [number, setNumber] = useState(0);
@@ -13,13 +13,15 @@ export const Numbers: FC = () => {
   };
 
   return (
-    <div className="flex justify-around items-center w-[120px] h-[48px] bg-gray">
+    <div className="flex justify-around items-center w-[120px] h-[54px] bg-gray">
       <Minus
         onClick={decrement}
         className="cursor-pointer hover:text-primary"
         size={13}
       />
-      <p className="mx-2 select-none w-3">{number}</p>
+      <p className="mx-2 select-none w-3 font-bold text-[13px] tracking-[1px]">
+        {number}
+      </p>
       <Plus
         onClick={increment}
         className="cursor-pointer hover:text-primary"
