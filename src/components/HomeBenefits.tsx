@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 export const HomeBenefits: FC = () => {
   return (
-    <section className="mt-28 flex justify-center">
+    <section className="mt-28 md:mt-40 flex justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center md:w-3/4">
         <img
           src="src/assets/shared/mobile/image-best-gear.jpg"

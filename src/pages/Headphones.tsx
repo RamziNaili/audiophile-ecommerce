@@ -4,7 +4,14 @@ import { ProductPages } from './ProductPages';
 export const Headphones: FC = () => {
   return (
     <main>
-      <ProductPages product="headphones" />
+      <ProductPages
+        product="headphones"
+        productsToDisplaySlug={[
+          'xx99-mark-two-headphones',
+          'xx99-mark-one-headphones',
+          'xx59-headphones',
+        ]}
+      />
     </main>
   );
 };
