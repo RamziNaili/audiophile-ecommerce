@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 import { FC } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "full" | "outline" | "ghost";
+  variant?: "full" | "outline" | "outlineReverse" | "ghost";
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -10,12 +10,14 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
 }) => {
-  const baseStyles = " uppercase font-bold tracking-[1px]";
+  const baseStyles = "uppercase font-bold tracking-[1px] w-fit";
 
   const variantStyles = {
     full: "bg-primary hover:bg-light_orange text-white border-none px-[30px] py-[15px]",
     outline:
-      "text-black hover:text-white hover:bg-black border px-[30px] py-[15px]",
+      "text-black hover:text-white hover:bg-black border px-[30px] py-[15px] hover:border-black",
+    outlineReverse:
+      "text-white hover:text-black bg-black hover:bg-white border px-[30px] py-[15px] border-none",
     ghost:
       "px-[13px] py-[15px] flex items-center text-black/50 hover:text-primary",
   };

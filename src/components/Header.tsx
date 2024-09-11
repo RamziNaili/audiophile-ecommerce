@@ -1,13 +1,13 @@
-import { FC } from "react";
-import Logo from "../assets/shared/desktop/logo.svg?react";
-import Cart from "../assets/shared/desktop/icon-cart.svg?react";
-import BurgerMenu from "../assets/shared/tablet/icon-hamburger.svg?react";
-import { NavLink } from "react-router-dom";
+import { FC } from 'react';
+import Logo from '../assets/shared/desktop/logo.svg?react';
+import Cart from '../assets/shared/desktop/icon-cart.svg?react';
+import BurgerMenu from '../assets/shared/tablet/icon-hamburger.svg?react';
+import { NavLink } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
-    <section className="flex justify-center bg-black h-24">
-      <div className="flex items-center justify-between w-3/4 border-b">
+    <section className="flex justify-center h-24">
+      <div className="flex items-center justify-between w-full border-b border-white border-opacity-20">
         <div className="flex items-center gap-10">
           <BurgerMenu className="md:hidden" />
           <Logo />
