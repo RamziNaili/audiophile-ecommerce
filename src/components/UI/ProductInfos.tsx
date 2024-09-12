@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Product } from "../../types/types";
 import { Button } from "../Button";
 import { Numbers } from "../Numbers";
+import { NavLink } from "react-router-dom";
 
 type Props = {
   product: Product | undefined;
@@ -120,7 +121,9 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               <p className="font-bold text-[24px] tracking-[1.70px] uppercase">
                 {article.name}
               </p>
-              <Button>see procuct</Button>
+              <NavLink to={`/${article.slug}`}>
+                <Button>see product</Button>
+              </NavLink>
             </div>
           ))}
         </div>

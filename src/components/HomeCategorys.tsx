@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Button } from "./Button";
+import { NavLink } from "react-router-dom";
 
 export const HomeCategorys: FC = () => {
   const categorys = [
@@ -29,9 +30,11 @@ export const HomeCategorys: FC = () => {
               <h2 className="pt-[88px] uppercase font-bold text-lg">
                 {category.category}
               </h2>
-              <Button className="pb-6" variant="ghost">
-                shop
-              </Button>
+              <NavLink to={`/${category.category}`}>
+                <Button className="pb-6" variant="ghost">
+                  shop
+                </Button>
+              </NavLink>
             </div>
             <img
               className="absolute bottom-20 left-[80px] md:left-[25px] xl:left-[60px] w-[160px] md:w-[180px] xl:w-[230px]"

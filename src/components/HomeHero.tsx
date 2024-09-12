@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import { Header } from './Header';
-import { Button } from './Button';
+import { FC } from "react";
+import { Header } from "./Header";
+import { Button } from "./Button";
+import { NavLink } from "react-router-dom";
 
 export const HomeHero: FC = () => {
   return (
@@ -20,7 +21,9 @@ export const HomeHero: FC = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button className="mt-10">See Product</Button>
+          <NavLink to={`/xx99-mark-two-headphones`}>
+            <Button className="mt-10">See Product</Button>
+          </NavLink>
         </div>
       </div>
     </section>
