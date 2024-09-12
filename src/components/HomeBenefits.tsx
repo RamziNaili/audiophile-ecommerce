@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 export const HomeBenefits: FC = () => {
   return (
-    <section className="mt-28 flex justify-center">
+    <section className="mt-28 md:mt-40 flex justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center md:w-3/4">
         <img
           src="src/assets/shared/mobile/image-best-gear.jpg"
           alt="best-gear"
           className="w-5/6 rounded-[8px] h-auto md:order-2"
         />
-        <div className="flex flex-col items-center w-5/6">
+        <div className="flex flex-col items-center justify-center w-5/6">
           <h3 className="mt-10 text-center uppercase font-bold text-[28px] tracking-[1px]">
             Bringing you the <span className="text-primary">best </span>
             audio gear

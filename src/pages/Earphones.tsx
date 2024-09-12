@@ -1,5 +1,13 @@
-import { FC } from "react";
+import { FC } from 'react';
+import { ProductPages } from './ProductPages';
 
 export const Earphones: FC = () => {
-  return <div>earphones</div>;
+  return (
+    <main>
+      <ProductPages
+        product="earphones"
+        productsToDisplaySlug={['yx1-earphones']}
+      />
+    </main>
+  );
 };
