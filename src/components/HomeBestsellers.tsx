@@ -20,13 +20,8 @@ export const HomeBestsellers: FC = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <NavLink to={`/zx9-speaker`}>
-            <Button
-              className="mt-6 sm:mt-10 mb-14 sm:mb-16"
-              variant="outlineReverse"
-            >
-              see product
-            </Button>
+          <NavLink to={`/zx9-speaker`} className="mt-6 sm:mt-10 mb-14 sm:mb-16">
+            <Button variant="outlineReverse">see product</Button>
           </NavLink>
         </div>
       </div>
@@ -43,10 +38,8 @@ export const HomeBestsellers: FC = () => {
           <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
             YX1 EARPHONES
           </h2>
-          <NavLink to={`/yx1-earphones`}>
-            <Button className="mt-8 mb-10" variant="outline">
-              see product
-            </Button>
+          <NavLink to={`/yx1-earphones`} className="mt-8 mb-10">
+            <Button variant="outline">see product</Button>
           </NavLink>
         </div>
       </div>

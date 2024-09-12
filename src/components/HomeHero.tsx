@@ -21,8 +21,8 @@ export const HomeHero: FC = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <NavLink to={`/xx99-mark-two-headphones`}>
-            <Button className="mt-10">See Product</Button>
+          <NavLink to={`/xx99-mark-two-headphones`} className="mt-10">
+            <Button>See Product</Button>
           </NavLink>
         </div>
       </div>

@@ -40,8 +40,8 @@ export const ProductDescription: FC<Props> = ({ product, index }) => {
           <p className="w-3/4 lg:w-[450px] max-lg:text-center text-black/[.5] font-medium text-[15px] leading-[25px] mt-6 sm:mt-8">
             {product.description}
           </p>
-          <NavLink to={`/${product.slug}`}>
-            <Button className="mt-6">see product</Button>
+          <NavLink to={`/${product.slug}`} className="mt-6">
+            <Button>see product</Button>
           </NavLink>
         </div>
       </div>
