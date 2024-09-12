@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { Product } from '../../types/types';
-import { Button } from '../Button';
-import { Numbers } from '../Numbers';
+import { FC } from "react";
+import { Product } from "../../types/types";
+import { Button } from "../Button";
+import { Numbers } from "../Numbers";
 
 type Props = {
   product: Product | undefined;
@@ -18,7 +18,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
             Go Back
           </p>
           <img
-            src={'src/' + product?.image.mobile}
+            src={"src/" + product?.image.mobile}
             alt={product?.slug}
             className="max-lg:w-5/6 rounded-[8px]"
           />
@@ -32,7 +32,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
           )}
           <h4
             className={`font-bold text-[28px] tracking-[1px] sm:tracking-[1.43px] sm:leading-[44px] sm:text-[40px] uppercase w-3/4 lg:w-[400px] ${
-              product?.new ? 'mt-6' : 'mt-8 sm:mt-12'
+              product?.new ? "mt-6" : "mt-8 sm:mt-12"
             }`}
           >
             {product?.name}
@@ -41,7 +41,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
             {product?.description}
           </p>
           <p className="mt-6 font-bold text-[18px] tracking-[1.29px]">
-            {'$ ' + product?.price}
+            {"$ " + product?.price}
           </p>
           <div className="flex justify-between mt-7">
             <Numbers />
@@ -78,32 +78,36 @@ export const ProductInfos: FC<Props> = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-5 mt-20">
-        <img
-          src={'src/' + product?.gallery.first.desktop}
-          alt={product?.slug}
-          className="w-5/6 rounded-[8px]"
-        />
-        <img
-          src={'src/' + product?.gallery.second.desktop}
-          alt={product?.slug}
-          className="w-5/6 rounded-[8px]"
-        />
-        <img
-          src={'src/' + product?.gallery.third.desktop}
-          alt={product?.slug}
-          className="w-5/6 rounded-[8px]"
-        />
+      <div className="flex justify-center mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-5/6 sm:w-3/4">
+          <div className="flex flex-col gap-5">
+            <img
+              src={"src/" + product?.gallery.first.desktop}
+              alt={product?.slug}
+              className="rounded-[8px]"
+            />
+            <img
+              src={"src/" + product?.gallery.second.desktop}
+              alt={product?.slug}
+              className="rounded-[8px]"
+            />
+          </div>
+          <img
+            src={"src/" + product?.gallery.third.desktop}
+            alt={product?.slug}
+            className="h-full w-auto rounded-[8px]"
+          />
+        </div>
       </div>
       <div className="flex flex-col items-center my-28">
         <p className="font-bold text-[24px] leading-[36px] tracking-[.86px] text-center uppercase mb-10">
           you may also like
         </p>
-        <div className="flex flex-col gap-14">
+        <div className="flex flex-col md:flex-row md:justify-between w-5/6 md:w-3/4 max-md:gap-14">
           {product?.others.map((article) => (
             <div className="flex flex-col items-center gap-8">
               <img
-                src={'src/' + article.image.desktop}
+                src={"src/" + article.image.desktop}
                 alt={article.name}
                 className="w-5/6 rounded-[8px]"
               />
