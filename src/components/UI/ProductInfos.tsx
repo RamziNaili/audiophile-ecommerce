@@ -26,7 +26,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
             />
           </div>
 
-          <div className="flex flex-col justify-center max-md:w-5/6 ">
+          <div className="flex flex-col justify-center max-lg:w-5/6 ">
             {product?.new && (
               <p className="mt-8 sm:mt-12 uppercase text-[14px] tracking-[10px] text-primary">
                 new product
@@ -71,7 +71,10 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               </p>
               <div className="flex flex-col gap-2">
                 {product?.includes.map((p) => (
-                  <div className="flex gap-[21px]">
+                  <div
+                    className="flex gap-[21px]"
+                    key={p.item + p.quantity + product.name}
+                  >
                     <p className="text-primary font-bold text-[15px] leading-[25px] ">
                       {p.quantity}x
                     </p>
@@ -112,7 +115,10 @@ export const ProductInfos: FC<Props> = ({ product }) => {
         </p>
         <div className="flex flex-col md:flex-row md:justify-between w-5/6 md:w-3/4 max-md:gap-14">
           {product?.others.map((article) => (
-            <div className="flex flex-col items-center gap-8">
+            <div
+              className="flex flex-col items-center gap-8"
+              key={article.name + product.category}
+            >
               <img
                 src={"src/" + article.image.desktop}
                 alt={article.name}

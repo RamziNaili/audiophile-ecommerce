@@ -1,15 +1,15 @@
-import { FC } from 'react';
-import Logo from '../assets/shared/desktop/logo.svg?react';
-import Cart from '../assets/shared/desktop/icon-cart.svg?react';
-import BurgerMenu from '../assets/shared/tablet/icon-hamburger.svg?react';
-import { NavLink } from 'react-router-dom';
+import { FC } from "react";
+import Logo from "../assets/shared/desktop/logo.svg?react";
+import Cart from "../assets/shared/desktop/icon-cart.svg?react";
+import { NavLink } from "react-router-dom";
+import { BurgerMenuComp } from "./UI/BurgerMenu";
 
 export const Header: FC = () => {
   return (
     <section className={`flex justify-center h-24 border-b border-white/[.2]`}>
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-10">
-          <BurgerMenu className="md:hidden max-sm:ml-6" />
+          <BurgerMenuComp />
           <Logo />
         </div>
         <nav className="flex text-white uppercase lg:gap-8 gap-3 max-md:hidden">
