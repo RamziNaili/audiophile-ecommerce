@@ -1,14 +1,28 @@
-import { FC } from "react";
-import { Product } from "../../types/types";
-import { Button } from "../Button";
-import { Numbers } from "../Numbers";
-import { NavLink } from "react-router-dom";
+import { FC, useEffect } from 'react';
+import { Product } from '../../types/types';
+import { Button } from '../Button';
+import { Numbers } from '../Numbers';
+import { NavLink } from 'react-router-dom';
+import { useCartStore } from '../../core/store/useCartStore';
+import { getProductBySlug } from '../../utils/utils';
 
 type Props = {
   product: Product | undefined;
 };
 
 export const ProductInfos: FC<Props> = ({ product }) => {
+  const { cartItems } = useCartStore((state) => state);
+  const setCartItems = useCartStore((state) => state.setCartItems);
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
+
+  const addToCart = (product: Product | undefined) => {
+    if (!product) return;
+    setCartItems(product);
+  };
+
   return (
     <section className="flex flex-col justify-center">
       <div className="flex justify-center">
@@ -20,7 +34,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               Go Back
             </p>
             <img
-              src={"src/" + product?.image.mobile}
+              src={'src/' + product?.image.mobile}
               alt={product?.slug}
               className="w-5/6 lg:w-[550px] rounded-[8px]"
             />
@@ -34,7 +48,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
             )}
             <h4
               className={`font-bold text-[28px] tracking-[1px] sm:tracking-[1.43px] sm:leading-[44px] sm:text-[40px] uppercase w-3/4 lg:w-[400px] ${
-                product?.new ? "mt-6" : "mt-8 sm:mt-12"
+                product?.new ? 'mt-6' : 'mt-8 sm:mt-12'
               }`}
             >
               {product?.name}
@@ -43,11 +57,15 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               {product?.description}
             </p>
             <p className="mt-6 font-bold text-[18px] tracking-[1.29px]">
-              {"$ " + product?.price}
+              {'$ ' + product?.price}
             </p>
             <div className="flex gap-4 mt-7">
               <Numbers />
-              <Button>add to cart</Button>
+              <Button
+                onClick={() => addToCart(getProductBySlug(product?.slug))}
+              >
+                add to cart
+              </Button>
             </div>
           </div>
         </div>
@@ -92,18 +110,18 @@ export const ProductInfos: FC<Props> = ({ product }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-5/6 sm:w-3/4">
           <div className="flex flex-col gap-5">
             <img
-              src={"src/" + product?.gallery.first.desktop}
+              src={'src/' + product?.gallery.first.desktop}
               alt={product?.slug}
               className="rounded-[8px]"
             />
             <img
-              src={"src/" + product?.gallery.second.desktop}
+              src={'src/' + product?.gallery.second.desktop}
               alt={product?.slug}
               className="rounded-[8px]"
             />
           </div>
           <img
-            src={"src/" + product?.gallery.third.desktop}
+            src={'src/' + product?.gallery.third.desktop}
             alt={product?.slug}
             className="h-full w-auto rounded-[8px]"
           />
@@ -120,7 +138,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               key={article.name + product.category}
             >
               <img
-                src={"src/" + article.image.desktop}
+                src={'src/' + article.image.desktop}
                 alt={article.name}
                 className="w-5/6 rounded-[8px]"
               />
