@@ -9,8 +9,6 @@ import { getProductBySlug } from '../utils/utils';
 export const ProductDetails: FC = () => {
   const { productSlug } = useParams();
 
-  console.log(productSlug);
-
   if (!productSlug) return null;
 
   return (
