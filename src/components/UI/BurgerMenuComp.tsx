@@ -1,0 +1,32 @@
+import { FC, useState } from 'react';
+import { HomeCategorys } from '../HomeCategorys';
+
+export const BurgerMenuComp: FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div
+        className={`block relative z-20 cursor-pointer md:hidden max-sm:ml-6`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span
+          className={`${isOpen ? 'bg-black rotate-45 translate-y-2' : 'bg-white'} w-6 h-1 my-1 rounded duration-500 block`}
+        />
+        <span
+          className={`${isOpen ? 'bg-black opacity-0' : 'bg-white'} w-6 h-1 my-1 rounded duration-500 block`}
+        />
+        <span
+          className={`${isOpen ? 'bg-black -rotate-45 -translate-y-2' : 'bg-white '} w-6 h-1 my-1 rounded duration-500 block`}
+        />
+      </div>
+      <div
+        className={`absolute top-0 left-0 block h-[100dvh] w-[100dvw] bg-white text-black z-10 duration-500 ${
+          !isOpen && `-translate-x-[100dvw]`
+        } flex items-center justify-center`}
+      >
+        <HomeCategorys />
+      </div>
+    </>
+  );
+};

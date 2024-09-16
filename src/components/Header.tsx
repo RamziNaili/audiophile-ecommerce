@@ -1,8 +1,8 @@
-import { FC } from "react";
-import Logo from "../assets/shared/desktop/logo.svg?react";
-import Cart from "../assets/shared/desktop/icon-cart.svg?react";
-import { NavLink } from "react-router-dom";
-import { BurgerMenuComp } from "./UI/BurgerMenu";
+import { FC } from 'react';
+import Logo from '../assets/shared/desktop/logo.svg?react';
+import Cart from '../assets/shared/desktop/icon-cart.svg?react';
+import { NavLink } from 'react-router-dom';
+import { BurgerMenuComp } from './UI/BurgerMenuComp';
 
 export const Header: FC = () => {
   return (
