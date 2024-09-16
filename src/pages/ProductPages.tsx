@@ -29,7 +29,11 @@ export const ProductPages: FC<Props> = ({ product, productsToDisplaySlug }) => {
         </h1>
       </div>
       {foundProducts.map((product, index) => (
-        <ProductDescription product={product} index={index} />
+        <ProductDescription
+          product={product}
+          index={index}
+          key={product.name + index}
+        />
       ))}
       <HomeCategorys />
       <HomeBenefits />

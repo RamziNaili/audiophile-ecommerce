@@ -1,30 +1,30 @@
-import { FC } from "react";
-import { Button } from "./Button";
-import { NavLink } from "react-router-dom";
+import { FC } from 'react';
+import { Button } from './Button';
+import { NavLink } from 'react-router-dom';
 
 export const HomeCategorys: FC = () => {
   const categorys = [
     {
-      path: "src/assets/shared/desktop/image-category-thumbnail-headphones.png",
-      category: "headphones",
+      path: 'src/assets/shared/desktop/image-category-thumbnail-headphones.png',
+      category: 'headphones',
     },
     {
-      path: "src/assets/shared/desktop/image-category-thumbnail-speakers.png",
-      category: "speakers",
+      path: 'src/assets/shared/desktop/image-category-thumbnail-speakers.png',
+      category: 'speakers',
     },
     {
-      path: "src/assets/shared/desktop/image-category-thumbnail-earphones.png",
-      category: "earphones",
+      path: 'src/assets/shared/desktop/image-category-thumbnail-earphones.png',
+      category: 'earphones',
     },
   ];
 
   return (
-    <section className="flex justify-center mt-24 md:mt-36 xl:mt-52">
+    <section className={`flex justify-center mt-24 md:mt-36 xl:mt-52`}>
       <ul className="flex flex-col md:flex-row gap-20 md:gap-2.5 lg:gap-7 items-center">
         {categorys.map((category) => (
           <li
             className="relative"
-            key={category.path + "-" + category.category}
+            key={category.path + '-' + category.category}
           >
             <div className="bg-gray flex flex-col items-center justify-center w-[330px] md:w-[225px] xl:w-[350px]">
               <h2 className="pt-[88px] uppercase font-bold text-lg">
