@@ -1,8 +1,13 @@
 import { create } from 'zustand';
 import { Product } from '../../types/types';
 
+type CartItem = {
+  product: Product;
+  quantity: number;
+};
+
 type initialState = {
-  cartItems: Product[];
+  cartItems: CartItem[];
 };
 
 type Actions = {
@@ -15,6 +20,24 @@ const initialState: initialState = {
 
 export const useCartStore = create<initialState & Actions>((set) => ({
   ...initialState,
-  setCartItems: (item) =>
-    set((state) => ({ cartItems: [...state.cartItems, item] })),
+  setCartItems: (newProduct) =>
+    set((state) => {
+      const existingItem = state.cartItems.find(
+        (item) => item.product.id === newProduct.id
+      );
+
+      if (existingItem) {
+        return {
+          cartItems: state.cartItems.map((item) =>
+            item.product.id === newProduct.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        };
+      } else {
+        return {
+          cartItems: [...state.cartItems, { product: newProduct, quantity: 1 }],
+        };
+      }
+    }),
 }));
