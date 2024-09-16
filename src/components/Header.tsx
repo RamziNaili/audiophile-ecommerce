@@ -1,10 +1,17 @@
-import { FC } from 'react';
+import { FC, useRef, useState } from 'react';
 import Logo from '../assets/shared/desktop/logo.svg?react';
 import Cart from '../assets/shared/desktop/icon-cart.svg?react';
 import { NavLink } from 'react-router-dom';
 import { BurgerMenuComp } from './UI/BurgerMenuComp';
+import { Modal } from './UI/Modal';
 
 export const Header: FC = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const cartIconRef = useRef(null);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
     <section className={`flex justify-center h-24 border-b border-white/[.2]`}>
       <div className="flex items-center justify-between w-full">
@@ -38,7 +45,15 @@ export const Header: FC = () => {
             earphones
           </NavLink>
         </nav>
-        <Cart className="cursor-pointer max-sm:mr-6" />
+        <div ref={cartIconRef}>
+          <Cart className="cursor-pointer max-sm:mr-6" onClick={openModal} />
+        </div>
+
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          anchorRef={cartIconRef}
+        />
       </div>
     </section>
   );
