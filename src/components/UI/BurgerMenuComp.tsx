@@ -1,8 +1,21 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { HomeCategorys } from '../HomeCategorys';
 
 export const BurgerMenuComp: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden'); // Disable scroll
+    } else {
+      document.body.classList.remove('overflow-hidden'); // Enable scroll
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
 
   return (
     <>
