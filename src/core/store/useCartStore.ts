@@ -9,6 +9,7 @@ type CartItem = {
 type initialState = {
   cartItems: CartItem[];
   totalItems: number;
+  totalPrice: number;
 };
 
 type Actions = {
@@ -19,6 +20,7 @@ type Actions = {
 const initialState: initialState = {
   cartItems: [],
   totalItems: 0,
+  totalPrice: 0,
 };
 
 export const useCartStore = create<initialState & Actions>((set) => ({
@@ -50,14 +52,22 @@ export const useCartStore = create<initialState & Actions>((set) => ({
         0
       );
 
+      // Recalculer le prix total
+      const totalPrice = updatedCartItems.reduce(
+        (total, item) => total + item.product.price * item.quantity,
+        0
+      );
+
       return {
         cartItems: updatedCartItems,
         totalItems,
+        totalPrice,
       };
     }),
   removeAll: () =>
     set({
       cartItems: [],
       totalItems: 0,
+      totalPrice: 0,
     }),
 }));

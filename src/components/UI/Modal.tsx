@@ -1,43 +1,7 @@
-// import { FC } from 'react';
-// import ReactDOM from 'react-dom';
-// import { useCartStore } from '../../core/store/useCartStore';
-// import { Button } from '../Button';
-
-// interface ModalProps {
-//   isOpen: boolean;
-//   onClose: () => void;
-// }
-
-// export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
-//   const { cartItems, totalItems } = useCartStore((state) => state);
-
-//   if (!isOpen) return null;
-
-//   return ReactDOM.createPortal(
-//     <div className={`relative z-50`}>
-//       <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose} />
-
-//       <div className="relative bg-white px-7 py-8 w-[80dvw] rounded-[8px]">
-//         <div className="flex justify-between">
-//           <p>cart ({totalItems})</p>
-//           <button>Remove all</button>
-//         </div>
-//         <div className="flex justify-between">
-//           <p>total</p>
-//           <p>$ {}</p>
-//         </div>
-//         <div className="flex justify-center">
-//           <Button>checkout</Button>
-//         </div>
-//       </div>
-//     </div>,
-//     document.body
-//   );
-// };
-
 import { FC } from 'react';
 import { useCartStore } from '../../core/store/useCartStore';
 import { Button } from '../Button';
+import { Numbers } from '../Numbers';
 
 interface ModalProps {
   isOpen: boolean;
@@ -45,7 +9,9 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
-  const { totalItems, removeAll } = useCartStore((state) => state);
+  const { cartItems, totalItems, removeAll, totalPrice } = useCartStore(
+    (state) => state
+  );
 
   if (!isOpen) return null;
 
@@ -63,9 +29,23 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             Remove all
           </button>
         </div>
+        {cartItems.map((item, idx) => (
+          <div key={idx} className="flex items-center justify-between">
+            <img
+              src={'src/assets/cart/image-' + item.product.slug + '.jpg'}
+              alt={item.product.name}
+              className="w-14"
+            />
+            <div>
+              <p>{item.product.name.split(' ')[0]}</p>
+              <p>$ {item.product.price}</p>
+            </div>
+            <Numbers />
+          </div>
+        ))}
         <div className="flex justify-between mb-6">
           <p>total</p>
-          <p>$ {}</p>
+          <p>$ {totalPrice}</p>
         </div>
         <div className="flex justify-center">
           <Button>checkout</Button>
