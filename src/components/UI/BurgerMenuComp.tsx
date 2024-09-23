@@ -5,16 +5,10 @@ export const BurgerMenuComp: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('overflow-hidden'); // Disable scroll
-    } else {
-      document.body.classList.remove('overflow-hidden'); // Enable scroll
-    }
+    if (isOpen) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
 
-    // Cleanup function to reset overflow when component unmounts
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
+    return () => document.body.classList.remove('overflow-hidden');
   }, [isOpen]);
 
   return (

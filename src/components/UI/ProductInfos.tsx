@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { Product } from '../../types/types';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../../core/store/useCartStore';
 import { getProductBySlug } from '../../utils/utils';
 
@@ -14,6 +14,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
   const { cartItems } = useCartStore((state) => state);
   const setCartItems = useCartStore((state) => state.setCartItems);
   const [counter, setCounter] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(cartItems);
@@ -31,7 +32,10 @@ export const ProductInfos: FC<Props> = ({ product }) => {
           className={`flex flex-col lg:flex-row lg:gap-[125px] justify-around items-center lg:w-3/4 `}
         >
           <div className="flex flex-col max-lg:items-center justify-center">
-            <p className="max-lg:w-5/6 font-medium text-black/[.5] text-[15px] mb-6">
+            <p
+              className="max-lg:w-5/6 font-medium text-black/[.5] text-[15px] mb-6"
+              onClick={() => navigate(-1)}
+            >
               Go Back
             </p>
             <img
