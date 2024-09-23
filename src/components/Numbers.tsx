@@ -1,29 +1,37 @@
 import { Minus, Plus } from 'lucide-react';
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { CartItem } from '../types/types';
+import { useCartStore } from '../core/store/useCartStore';
 
-export const Numbers: FC = () => {
-  const [number, setNumber] = useState(0);
+type NumbersProps = {
+  item?: CartItem;
+  counter?: number;
+  setCounter?: (counter: number) => void;
+};
 
-  const decrement = () => {
-    setNumber((prevNumber) => (prevNumber > 0 ? prevNumber - 1 : 0));
-  };
-
-  const increment = () => {
-    setNumber((prevNumber) => prevNumber + 1);
-  };
+export const Numbers: FC<NumbersProps> = ({ item, counter, setCounter }) => {
+  const { incrementQuantity, decrementQuantity } = useCartStore(
+    (state) => state
+  );
 
   return (
     <div className="flex justify-around items-center w-[120px] h-[54px] bg-gray">
       <Minus
-        onClick={decrement}
+        onClick={() => {
+          if (item) return decrementQuantity(item.product.slug);
+          if (counter && setCounter && counter > 1) setCounter(counter - 1);
+        }}
         className="cursor-pointer hover:text-primary"
         size={13}
       />
       <p className="mx-2 select-none w-3 font-bold text-[13px] tracking-[1px]">
-        {number}
+        {item ? item.quantity : counter}
       </p>
       <Plus
-        onClick={increment}
+        onClick={() => {
+          if (item) return incrementQuantity(item.product.slug);
+          if (counter && setCounter) setCounter(counter + 1);
+        }}
         className="cursor-pointer hover:text-primary"
         size={13}
       />
