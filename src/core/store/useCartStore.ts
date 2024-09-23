@@ -13,6 +13,7 @@ type initialState = {
 
 type Actions = {
   setCartItems: (item: Product) => void;
+  removeAll: () => void;
 };
 
 const initialState: initialState = {
@@ -53,5 +54,10 @@ export const useCartStore = create<initialState & Actions>((set) => ({
         cartItems: updatedCartItems,
         totalItems,
       };
+    }),
+  removeAll: () =>
+    set({
+      cartItems: [],
+      totalItems: 0,
     }),
 }));

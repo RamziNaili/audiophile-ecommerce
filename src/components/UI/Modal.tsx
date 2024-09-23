@@ -45,7 +45,7 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
-  const { totalItems } = useCartStore((state) => state);
+  const { totalItems, removeAll } = useCartStore((state) => state);
 
   if (!isOpen) return null;
 
@@ -59,10 +59,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
       <div className="absolute right-0 mt-4 bg-white shadow-lg px-7 py-8 w-[300px] rounded-[8px] z-50">
         <div className="flex justify-between mb-4">
           <p>cart ({totalItems})</p>
-          <button
-            className="text-red-500"
-            onClick={() => console.log('remove all')}
-          >
+          <button className="text-red-500" onClick={removeAll}>
             Remove all
           </button>
         </div>
