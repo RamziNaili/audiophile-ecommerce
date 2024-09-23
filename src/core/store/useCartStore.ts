@@ -8,7 +8,7 @@ type CartItem = {
 
 type initialState = {
   cartItems: CartItem[];
-  totalItems: number; // Ajout de la propriété pour le nombre total d'items
+  totalItems: number;
 };
 
 type Actions = {
@@ -17,7 +17,7 @@ type Actions = {
 
 const initialState: initialState = {
   cartItems: [],
-  totalItems: 0, // Initialisation du compteur à 0
+  totalItems: 0,
 };
 
 export const useCartStore = create<initialState & Actions>((set) => ({
@@ -51,7 +51,7 @@ export const useCartStore = create<initialState & Actions>((set) => ({
 
       return {
         cartItems: updatedCartItems,
-        totalItems, // Mise à jour du nombre total d'items
+        totalItems,
       };
     }),
 }));

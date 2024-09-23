@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import Logo from '../assets/shared/desktop/logo.svg?react';
 import Cart from '../assets/shared/desktop/icon-cart.svg?react';
 import { NavLink } from 'react-router-dom';
@@ -7,7 +7,6 @@ import { Modal } from './UI/Modal';
 
 export const Header: FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const cartIconRef = useRef(null);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -45,15 +44,10 @@ export const Header: FC = () => {
             earphones
           </NavLink>
         </nav>
-        <div ref={cartIconRef}>
+        <div className="relative">
           <Cart className="cursor-pointer max-sm:mr-6" onClick={openModal} />
+          {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} />}
         </div>
-
-        <Modal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          anchorRef={cartIconRef}
-        />
       </div>
     </section>
   );
