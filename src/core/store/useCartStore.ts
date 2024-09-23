@@ -8,7 +8,7 @@ type initialState = {
 };
 
 type Actions = {
-  setCartItems: (item: Product) => void;
+  setCartItems: (item: Product, quantity: number) => void;
   incrementQuantity: (slug: string) => void;
   decrementQuantity: (slug: string) => void;
   removeAll: () => void;
@@ -23,7 +23,7 @@ const initialState: initialState = {
 export const useCartStore = create<initialState & Actions>((set) => ({
   ...initialState,
 
-  setCartItems: (newProduct) =>
+  setCartItems: (newProduct, quantity) =>
     set((state) => {
       const existingItem = state.cartItems.find(
         (item) => item.product.id === newProduct.id
@@ -31,28 +31,32 @@ export const useCartStore = create<initialState & Actions>((set) => ({
 
       let updatedCartItems;
 
+      // Si l'article existe déjà dans le panier, ajouter la quantité
       if (existingItem) {
         updatedCartItems = state.cartItems.map((item) =>
           item.product.id === newProduct.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + quantity } // Ajouter la quantité
             : item
         );
       } else {
+        // Sinon, ajouter l'article avec la quantité spécifiée
         updatedCartItems = [
           ...state.cartItems,
-          { product: newProduct, quantity: 1 },
+          { product: newProduct, quantity }, // Utiliser la quantité fournie
         ];
       }
 
-      const totalItems = updatedCartItems.reduce(
-        (total, item) => total + item.quantity,
-        0
-      );
-
-      // Recalculer le prix total
-      const totalPrice = updatedCartItems.reduce(
-        (total, item) => total + item.product.price * item.quantity,
-        0
+      // Calculer le nombre total d'articles et le prix total
+      const { totalItems, totalPrice } = updatedCartItems.reduce(
+        (totals, item) => {
+          const { quantity } = item;
+          const { price } = item.product;
+          return {
+            totalItems: totals.totalItems + quantity,
+            totalPrice: totals.totalPrice + price * quantity,
+          };
+        },
+        { totalItems: 0, totalPrice: 0 } // Valeurs initiales
       );
 
       return {

@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Product } from '../../types/types';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
@@ -13,6 +13,7 @@ type Props = {
 export const ProductInfos: FC<Props> = ({ product }) => {
   const { cartItems } = useCartStore((state) => state);
   const setCartItems = useCartStore((state) => state.setCartItems);
+  const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     console.log(cartItems);
@@ -20,7 +21,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
 
   const addToCart = (product: Product | undefined) => {
     if (!product) return;
-    setCartItems(product);
+    setCartItems(product, counter);
   };
 
   return (
@@ -60,7 +61,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               {'$ ' + product?.price}
             </p>
             <div className="flex gap-4 mt-7">
-              <Numbers />
+              <Numbers counter={counter} setCounter={setCounter} />
               <Button
                 onClick={() => addToCart(getProductBySlug(product?.slug))}
               >
