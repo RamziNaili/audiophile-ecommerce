@@ -1,10 +1,5 @@
 import { create } from 'zustand';
-import { Product } from '../../types/types';
-
-type CartItem = {
-  product: Product;
-  quantity: number;
-};
+import { CartItem, Product } from '../../types/types';
 
 type initialState = {
   cartItems: CartItem[];
@@ -14,6 +9,8 @@ type initialState = {
 
 type Actions = {
   setCartItems: (item: Product) => void;
+  incrementQuantity: (slug: string) => void;
+  decrementQuantity: (slug: string) => void;
   removeAll: () => void;
 };
 
@@ -53,6 +50,55 @@ export const useCartStore = create<initialState & Actions>((set) => ({
       );
 
       // Recalculer le prix total
+      const totalPrice = updatedCartItems.reduce(
+        (total, item) => total + item.product.price * item.quantity,
+        0
+      );
+
+      return {
+        cartItems: updatedCartItems,
+        totalItems,
+        totalPrice,
+      };
+    }),
+  incrementQuantity: (slug: string) =>
+    set((state) => {
+      const updatedCartItems = state.cartItems.map((item) =>
+        item.product.slug === slug
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
+      const totalItems = updatedCartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      const totalPrice = updatedCartItems.reduce(
+        (total, item) => total + item.product.price * item.quantity,
+        0
+      );
+
+      return {
+        cartItems: updatedCartItems,
+        totalItems,
+        totalPrice,
+      };
+    }),
+  decrementQuantity: (slug: string) =>
+    set((state) => {
+      let updatedCartItems = state.cartItems.map((item) =>
+        item.product.slug === slug
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+
+      // Supprimer les articles dont la quantité est 0
+      updatedCartItems = updatedCartItems.filter((item) => item.quantity > 0);
+
+      const totalItems = updatedCartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
       const totalPrice = updatedCartItems.reduce(
         (total, item) => total + item.product.price * item.quantity,
         0

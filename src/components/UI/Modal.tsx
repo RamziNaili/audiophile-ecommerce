@@ -40,7 +40,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
               <p>{item.product.name.split(' ')[0]}</p>
               <p>$ {item.product.price}</p>
             </div>
-            <Numbers />
+            <Numbers item={item} />
           </div>
         ))}
         <div className="flex justify-between mb-6">
