@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useCartStore } from '../../core/store/useCartStore';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
+import { NavLink } from 'react-router-dom';
 
 interface ModalProps {
   isOpen: boolean;
@@ -48,7 +49,9 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>$ {totalPrice}</p>
         </div>
         <div className="flex justify-center">
-          <Button>checkout</Button>
+          <NavLink to="checkout">
+            <Button>checkout</Button>
+          </NavLink>
         </div>
       </div>
     </>
