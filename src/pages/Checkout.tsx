@@ -23,7 +23,7 @@ export const Checkout: FC = () => {
             Go Back
           </p>
 
-          <div className="bg-white rounded p-6">
+          <div className="bg-white rounded-[8px] p-6">
             <h1 className="font-bold text-[28px] tracking-[1px] mb-8">
               checkout
             </h1>
@@ -112,6 +112,11 @@ export const Checkout: FC = () => {
                 </p>
               </div>
             )}
+          </div>
+          <div className="mt-8 bg-white rounded-[8px] px-6 py-8">
+            <p className="uppercase font-bold text-[18px] tracking-[1.29px] mb-8">
+              summary
+            </p>
           </div>
         </div>
       </section>
