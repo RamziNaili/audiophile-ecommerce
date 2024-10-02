@@ -4,6 +4,7 @@ import Cart from '../assets/shared/desktop/icon-cart.svg?react';
 import { NavLink } from 'react-router-dom';
 import { BurgerMenuComp } from './UI/BurgerMenuComp';
 import { Modal } from './UI/Modal';
+import { CheckoutPopup } from './UI/CheckoutPopup';
 
 export const Header: FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -46,7 +47,11 @@ export const Header: FC = () => {
         </nav>
         <div className="relative">
           <Cart className="cursor-pointer max-sm:mr-6" onClick={openModal} />
-          {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} />}
+          {isModalOpen && (
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+              <CheckoutPopup />
+            </Modal>
+          )}
         </div>
       </div>
     </section>

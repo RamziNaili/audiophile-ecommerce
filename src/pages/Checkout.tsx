@@ -4,11 +4,17 @@ import { Header } from '../components/Header';
 import { Input } from '../components/Input';
 import { useCartStore } from '../core/store/useCartStore';
 import { Button } from '../components/Button';
+import { Modal } from '../components/UI/Modal';
+import { Thanks } from '../components/UI/Thanks';
 
 export const Checkout: FC = () => {
   const navigate = useNavigate();
   const [isEMoney, setIsEMoney] = useState(true);
   const { cartItems, totalPrice } = useCartStore((state) => state);
+  const [isThanksOpen, setIsThanksOpen] = useState(false);
+
+  const openModal = () => setIsThanksOpen(true);
+  const closeModal = () => setIsThanksOpen(false);
 
   return (
     <main className="bg-[#fafafa] pb-28 sm:pb-24 md:pb-48">
@@ -207,7 +213,14 @@ export const Checkout: FC = () => {
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </p>
               </div>
-              <Button className="w-full mt-8">continue & pay</Button>
+              <Button className="w-full mt-8" onClick={openModal}>
+                continue & pay
+              </Button>
+              {isThanksOpen && (
+                <Modal isOpen={isThanksOpen} onClose={closeModal}>
+                  <Thanks />
+                </Modal>
+              )}
             </div>
           </div>
         </div>
