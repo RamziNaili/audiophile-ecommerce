@@ -3,7 +3,7 @@ import { ProductPages } from './ProductPages';
 
 export const Headphones: FC = () => {
   return (
-    <main>
+    <main className="pb-28 sm:pb-24 md:pb-48 ">
       <ProductPages
         product="headphones"
         productsToDisplaySlug={[

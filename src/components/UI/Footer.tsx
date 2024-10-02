@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Footer: FC = () => {
   return (
-    <section className="mt-28 sm:mt-24 md:mt-48 bg-black flex justify-center">
+    <section className="bg-black flex justify-center">
       <div className="grid grid-cols-1 max-sm:justify-items-center sm:px-10">
         <span className="bg-primary block h-1 w-24" />
         <Logo className="mt-12" />

@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Outlet } from "react-router-dom";
-import { Footer } from "./Footer";
-import { ScrollToTop } from "./ScrollToTop";
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
+import { Footer } from './Footer';
+import { ScrollToTop } from './ScrollToTop';
 
 export const Layout: FC = () => {
   return (
