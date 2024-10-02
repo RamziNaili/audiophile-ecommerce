@@ -11,7 +11,7 @@ export const Checkout: FC = () => {
   const { cartItems, totalPrice } = useCartStore((state) => state);
 
   return (
-    <main className="bg-[#fafafa]">
+    <main className="bg-[#fafafa] pb-28 sm:pb-24 md:pb-48">
       <div className="flex items-center justify-center bg-black">
         <div className="w-full sm:w-5/6 lg:w-3/4">
           <Header />

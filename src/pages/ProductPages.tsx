@@ -17,7 +17,7 @@ export const ProductPages: FC<Props> = ({ product, productsToDisplaySlug }) => {
     .filter(Boolean) as Product[];
 
   return (
-    <main>
+    <main className="pb-28 sm:pb-24 md:pb-48 ">
       <div className="bg-black mb-16 sm:mb-32">
         <div className="flex items-center justify-center">
           <div className="w-full sm:w-5/6 lg:w-3/4">

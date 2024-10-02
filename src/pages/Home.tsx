@@ -6,7 +6,7 @@ import { HomeBenefits } from '../components/HomeBenefits';
 
 export const Home: FC = () => {
   return (
-    <main>
+    <main className="pb-28 sm:pb-24 md:pb-48 ">
       <HomeHero />
       <HomeCategorys />
       <HomeBestsellers />
