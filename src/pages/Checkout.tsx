@@ -33,16 +33,23 @@ export const Checkout: FC = () => {
             <p className="uppercae text-primary font-bold text-[13px] leading-[25px] tracking-[0.93px] mb-4">
               billing details
             </p>
-            <Input label="Name" placeholder="Alexei Ward" className="mb-6" />
-            <Input
-              label="Email Address"
-              placeholder="alexei@mail.com"
-              className="mb-6"
-            />
+            <div className="md:flex gap-4">
+              <Input
+                label="Name"
+                placeholder="Alexei Ward"
+                className="mb-6 flex-1"
+              />
+              <Input
+                label="Email Address"
+                placeholder="alexei@mail.com"
+                className="mb-6 flex-1"
+              />
+            </div>
             <Input
               label="Phone Number"
               placeholder="+1 202-555-0136"
               className="mb-8"
+              inputClassName="md:w-1/2"
             />
             <p className="uppercae text-primary font-bold text-[13px] leading-[25px] tracking-[0.93px] mb-4">
               shipping info
@@ -52,56 +59,75 @@ export const Checkout: FC = () => {
               placeholder="1137 Williams Avenue"
               className="mb-6"
             />
-            <Input label="ZIP Code" placeholder="10001" className="mb-6" />
-            <Input label="City" placeholder="New York" className="mb-6" />
+            <div className="md:flex gap-4">
+              <Input
+                label="ZIP Code"
+                placeholder="10001"
+                className="mb-6 flex-1"
+              />
+              <Input
+                label="City"
+                placeholder="New York"
+                className="mb-6 flex-1"
+              />
+            </div>
             <Input
               label="Country"
               placeholder="United States"
               className="mb-6"
+              inputClassName="md:w-1/2"
             />
             <p className="uppercae text-primary font-bold text-[13px] leading-[25px] tracking-[0.93px] mb-4">
               payment details
             </p>
             <div className="flex flex-col">
-              <p className="mb-4 font-bold text-[12px] tracking-[-0.21px]">
-                payment method
-              </p>
-              <label
-                className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
-                htmlFor="e-money"
-              >
-                <input
-                  type="radio"
-                  name="payment-method"
-                  id="e-money"
-                  onChange={() => setIsEMoney(true)}
-                  checked={isEMoney}
-                />
-                <p className="pl-4">e-Money</p>
-              </label>
+              <div className="md:flex justify-between">
+                <p className="mb-4 font-bold text-[12px] tracking-[-0.21px]">
+                  payment method
+                </p>
+                <div className="md:w-1/2">
+                  <label
+                    className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
+                    htmlFor="e-money"
+                  >
+                    <input
+                      type="radio"
+                      name="payment-method"
+                      id="e-money"
+                      onChange={() => setIsEMoney(true)}
+                      checked={isEMoney}
+                    />
+                    <p className="pl-4">e-Money</p>
+                  </label>
 
-              <label
-                className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
-                htmlFor="cash"
-              >
-                <input
-                  type="radio"
-                  name="payment-method"
-                  id="cash"
-                  onChange={() => setIsEMoney(false)}
-                  checked={!isEMoney}
-                />
-                <p className="pl-4">Cash on Delivery</p>
-              </label>
+                  <label
+                    className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
+                    htmlFor="cash"
+                  >
+                    <input
+                      type="radio"
+                      name="payment-method"
+                      id="cash"
+                      onChange={() => setIsEMoney(false)}
+                      checked={!isEMoney}
+                    />
+                    <p className="pl-4">Cash on Delivery</p>
+                  </label>
+                </div>
+              </div>
             </div>
             {isEMoney ? (
-              <div className="mt-8">
+              <div className="mt-8 md:flex gap-4">
                 <Input
                   label="e-Money Number"
                   placeholder="238521993"
-                  className="mb-6"
+                  className="mb-6 flex-1"
                 />
-                <Input label="e-Money PIN" placeholder="6891" />
+                <Input
+                  label="e-Money PIN"
+                  placeholder="6891"
+                  className="flex-1"
+                />
               </div>
             ) : (
               <div className="mt-8">

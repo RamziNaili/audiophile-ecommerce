@@ -3,9 +3,15 @@ import { FC } from 'react';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   label: string;
+  inputClassName?: string;
 }
 
-export const Input: FC<InputProps> = ({ placeholder, label, className }) => {
+export const Input: FC<InputProps> = ({
+  placeholder,
+  label,
+  className,
+  inputClassName,
+}) => {
   return (
     <div className={`flex flex-col ${className}`}>
       <label className="mb-2.5" htmlFor={label}>
@@ -14,7 +20,7 @@ export const Input: FC<InputProps> = ({ placeholder, label, className }) => {
       <input
         id={label}
         placeholder={placeholder}
-        className="w-[310px] h-[56px] pl-[24px] rounded-[8px] outline-none border border-[#CFCFCF] hover:border-primary focus:border-primary caret-primary"
+        className={`h-[56px] pl-[24px] rounded-[8px] outline-none border border-[#CFCFCF] hover:border-primary focus:border-primary caret-primary ${inputClassName}`}
       />
     </div>
   );
