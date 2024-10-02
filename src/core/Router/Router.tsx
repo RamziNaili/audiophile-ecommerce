@@ -5,6 +5,7 @@ import { Earphones } from '../../pages/Earphones';
 import { Headphones } from '../../pages/Headphones';
 import { Speakers } from '../../pages/Speakers';
 import { ProductDetails } from '../../pages/ProductDetails';
+import { Checkout } from '../../pages/Checkout';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: ':productSlug',
         element: <ProductDetails />,
+      },
+      {
+        path: 'checkout',
+        element: <Checkout />,
       },
     ],
   },

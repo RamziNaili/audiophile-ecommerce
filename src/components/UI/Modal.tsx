@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useCartStore } from '../../core/store/useCartStore';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
+import { NavLink } from 'react-router-dom';
 
 interface ModalProps {
   isOpen: boolean;
@@ -45,10 +46,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
         ))}
         <div className="flex justify-between mb-6">
           <p>total</p>
-          <p>$ {totalPrice}</p>
+          <p>$ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         </div>
         <div className="flex justify-center">
-          <Button>checkout</Button>
+          <NavLink to="checkout">
+            <Button>checkout</Button>
+          </NavLink>
         </div>
       </div>
     </>
