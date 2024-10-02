@@ -66,7 +66,10 @@ export const Checkout: FC = () => {
               <p className="mb-4 font-bold text-[12px] tracking-[-0.21px]">
                 payment method
               </p>
-              <div className="border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4">
+              <label
+                className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
+                htmlFor="e-money"
+              >
                 <input
                   type="radio"
                   name="payment-method"
@@ -74,12 +77,13 @@ export const Checkout: FC = () => {
                   onChange={() => setIsEMoney(true)}
                   checked={isEMoney}
                 />
-                <label className="pl-4" htmlFor="e-money">
-                  e-Money
-                </label>
-              </div>
+                <p className="pl-4">e-Money</p>
+              </label>
 
-              <div className="border border-[#CFCFCF] px-4 py-5 rounded-[8px]">
+              <label
+                className="flex border border-[#CFCFCF] px-4 py-5 rounded-[8px] mb-4"
+                htmlFor="cash"
+              >
                 <input
                   type="radio"
                   name="payment-method"
@@ -87,10 +91,8 @@ export const Checkout: FC = () => {
                   onChange={() => setIsEMoney(false)}
                   checked={!isEMoney}
                 />
-                <label className="pl-4" htmlFor="cash">
-                  Cash on Delivery
-                </label>
-              </div>
+                <p className="pl-4">Cash on Delivery</p>
+              </label>
             </div>
             {isEMoney ? (
               <div className="mt-8">
