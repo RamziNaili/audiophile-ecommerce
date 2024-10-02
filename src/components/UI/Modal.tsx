@@ -46,7 +46,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
         ))}
         <div className="flex justify-between mb-6">
           <p>total</p>
-          <p>$ {totalPrice}</p>
+          <p>$ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         </div>
         <div className="flex justify-center">
           <NavLink to="checkout">

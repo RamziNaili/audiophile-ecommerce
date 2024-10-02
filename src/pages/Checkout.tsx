@@ -2,10 +2,13 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Input } from '../components/Input';
+import { useCartStore } from '../core/store/useCartStore';
+import { Button } from '../components/Button';
 
 export const Checkout: FC = () => {
   const navigate = useNavigate();
   const [isEMoney, setIsEMoney] = useState(true);
+  const { cartItems, totalPrice } = useCartStore((state) => state);
 
   return (
     <main className="bg-[#fafafa]">
@@ -113,10 +116,67 @@ export const Checkout: FC = () => {
               </div>
             )}
           </div>
-          <div className="mt-8 bg-white rounded-[8px] px-6 py-8">
+          <div className="mt-8 mb-24 bg-white rounded-[8px] px-6 py-8">
             <p className="uppercase font-bold text-[18px] tracking-[1.29px] mb-8">
               summary
             </p>
+            {cartItems.map((item, idx) => (
+              <div key={idx} className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={'src/assets/cart/image-' + item.product.slug + '.jpg'}
+                    alt={item.product.name}
+                    className="w-14 rounded-[8px]"
+                  />
+                  <div>
+                    <p className="font-bold text-[15px] leading-[25px]">
+                      {item.product.name.split(' ')[0]}
+                    </p>
+                    <p className="font-bold text-black/[.5] text-[14px] leading-[25px]">
+                      $ {item.product.price}
+                    </p>
+                  </div>
+                </div>
+                <p className="font-bold text-[15px] leading-[25px]">x1</p>
+              </div>
+            ))}
+            <div className="flex items-center justify-between mt-8">
+              <p className="uppercase font-medium text-[15px] leading-[25px] text-black/[.5]">
+                total
+              </p>
+              <p className="font-bold text-[18px]">
+                $ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="uppercase font-medium text-[15px] leading-[25px] text-black/[.5]">
+                shipping
+              </p>
+              <p className="font-bold text-[18px]">$ 50</p>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="uppercase font-medium text-[15px] leading-[25px] text-black/[.5]">
+                vat (included)
+              </p>
+              <p className="font-bold text-[18px]">
+                ${' '}
+                {Math.floor(totalPrice * 0.2)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </p>
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <p className="uppercase font-medium text-[15px] leading-[25px] text-black/[.5]">
+                grand total
+              </p>
+              <p className="font-bold text-[18px] text-primary">
+                ${' '}
+                {(totalPrice + 50)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </p>
+            </div>
+            <Button className="w-full mt-8">continue & pay</Button>
           </div>
         </div>
       </section>
