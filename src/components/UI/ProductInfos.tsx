@@ -64,7 +64,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
             <p className="mt-6 font-bold text-[18px] tracking-[1.29px]">
               {'$ ' + product?.price}
             </p>
-            <div className="flex gap-4 mt-7">
+            <div className="flex items-center gap-4 mt-7">
               <Numbers counter={counter} setCounter={setCounter} />
               <Button
                 onClick={() => addToCart(getProductBySlug(product?.slug))}
