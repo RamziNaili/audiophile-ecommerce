@@ -4,11 +4,17 @@ import { Header } from '../components/Header';
 import { Input } from '../components/Input';
 import { useCartStore } from '../core/store/useCartStore';
 import { Button } from '../components/Button';
+import { Modal } from '../components/UI/Modal';
+import { Thanks } from '../components/UI/Thanks';
 
 export const Checkout: FC = () => {
   const navigate = useNavigate();
   const [isEMoney, setIsEMoney] = useState(true);
   const { cartItems, totalPrice } = useCartStore((state) => state);
+  const [isThanksOpen, setIsThanksOpen] = useState(false);
+
+  const openModal = () => setIsThanksOpen(true);
+  const closeModal = () => setIsThanksOpen(false);
 
   return (
     <main className="bg-[#fafafa] pb-28 sm:pb-24 md:pb-48">
@@ -148,28 +154,30 @@ export const Checkout: FC = () => {
               <p className="uppercase font-bold text-[18px] tracking-[1.29px] mb-8">
                 summary
               </p>
-              {cartItems.map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={
-                        'src/assets/cart/image-' + item.product.slug + '.jpg'
-                      }
-                      alt={item.product.name}
-                      className="w-14 rounded-[8px]"
-                    />
-                    <div>
-                      <p className="font-bold text-[15px] leading-[25px]">
-                        {item.product.name.split(' ')[0]}
-                      </p>
-                      <p className="font-bold text-black/[.5] text-[14px] leading-[25px]">
-                        $ {item.product.price}
-                      </p>
+              <div className="flex flex-col gap-4">
+                {cartItems.map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={
+                          'src/assets/cart/image-' + item.product.slug + '.jpg'
+                        }
+                        alt={item.product.name}
+                        className="w-14 rounded-[8px]"
+                      />
+                      <div>
+                        <p className="font-bold text-[15px] leading-[25px]">
+                          {item.product.name.split(' ')[0]}
+                        </p>
+                        <p className="font-bold text-black/[.5] text-[14px] leading-[25px]">
+                          $ {item.product.price}
+                        </p>
+                      </div>
                     </div>
+                    <p className="font-bold text-[15px] leading-[25px]">x1</p>
                   </div>
-                  <p className="font-bold text-[15px] leading-[25px]">x1</p>
-                </div>
-              ))}
+                ))}
+              </div>
               <div className="flex items-center justify-between mt-8">
                 <p className="uppercase font-medium text-[15px] leading-[25px] text-black/[.5]">
                   total
@@ -207,7 +215,14 @@ export const Checkout: FC = () => {
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </p>
               </div>
-              <Button className="w-full mt-8">continue & pay</Button>
+              <Button className="w-full mt-8" onClick={openModal}>
+                continue & pay
+              </Button>
+              {isThanksOpen && (
+                <Modal isOpen={isThanksOpen} onClose={closeModal}>
+                  <Thanks />
+                </Modal>
+              )}
             </div>
           </div>
         </div>
