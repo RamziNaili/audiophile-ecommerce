@@ -4,7 +4,7 @@ import OrderConfirmation from '@/assets/checkout/icon-order-confirmation.svg?rea
 import { useCartStore } from '../../core/store/useCartStore';
 
 export const Thanks: FC = () => {
-  const { cartItems /* totalItems, totalPrice */ } = useCartStore(
+  const { cartItems /* totalItems,*/, totalPrice } = useCartStore(
     (state) => state
   );
 
@@ -19,7 +19,7 @@ export const Thanks: FC = () => {
           You will receive an email confirmation shortly.
         </p>
         <div className="bg-gray rounded-[8px] mb-6">
-          <div className="flex items-center justify-between p-6">
+          <div className="flex items-center justify-between px-6 pt-6 pb-3">
             <div className="flex items-center gap-4">
               <img
                 src={`src/assets/cart/image-${cartItems[0].product.slug}.jpg`}
@@ -37,6 +37,22 @@ export const Thanks: FC = () => {
             </div>
             <p className="font-bold text-[15px] leading-[25px] text-black/[.5]">
               x {cartItems[0].quantity}
+            </p>
+          </div>
+          {cartItems.length > 1 && (
+            <div className="flex flex-col items-center">
+              <span className="block h-px bg-black/[.08] w-4/5" />
+              <p className="mt-3 mb-6 font-bold text-[12px] tracking-[-0.21px] text-black/[.5]">
+                and {cartItems.length - 1} other item(s)
+              </p>
+            </div>
+          )}
+          <div className="bg-black px-6 py-4 rounded-b-[8px]">
+            <p className="text-white/[.5] font-medium text-[15px] leading-[25px] uppercase mb-2">
+              grand total
+            </p>
+            <p className="text-white font-bold text-[18px] ">
+              $ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </p>
           </div>
         </div>
