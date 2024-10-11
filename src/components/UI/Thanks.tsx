@@ -1,19 +1,31 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Button } from '../Button';
 import OrderConfirmation from '@/assets/checkout/icon-order-confirmation.svg?react';
 import { useCartStore } from '../../core/store/useCartStore';
 
 export const Thanks: FC = () => {
-  const { cartItems /* totalItems,*/, totalPrice } = useCartStore(
-    (state) => state
-  );
+  const { cartItems, totalPrice } = useCartStore((state) => state);
   const [isOpen, setIsOpen] = useState(false);
-
-  if (cartItems.length === 0) return;
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  // Forcer le scroll vers le haut et désactiver le scroll en arrière-plan
+  useEffect(() => {
+    // Scroll vers le haut
+    window.scrollTo(0, 0);
+
+    // Désactiver le scroll en arrière-plan
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      // Réactiver le scroll lorsque la modal est fermée
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  if (cartItems.length === 0) return;
 
   return (
     <div className="absolute w-screen h-screen top-0 left-0 flex items-center justify-center">
