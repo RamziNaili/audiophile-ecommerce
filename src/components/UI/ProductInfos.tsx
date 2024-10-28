@@ -6,6 +6,43 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../../core/store/useCartStore';
 import { getProductBySlug } from '../../utils/utils';
 
+import yx1EarphonesMobile from '../../assets/product-yx1-earphones/mobile/image-product.jpg';
+import xx59HeadphonesMobile from '../../assets/product-xx59-headphones/mobile/image-product.jpg';
+import xx99MarkOneHeadphonesMobile from '../../assets/product-xx99-mark-one-headphones/mobile/image-product.jpg';
+import xx99MarkTwoHeadphonesMobile from '../../assets/product-xx99-mark-two-headphones/mobile/image-product.jpg';
+import zx7SpeakerMobile from '../../assets/product-zx7-speaker/mobile/image-product.jpg';
+import zx9SpeakerMobile from '../../assets/product-zx9-speaker/mobile/image-product.jpg';
+
+import yx1EarphonesGallery1 from './assets/product-yx1-earphones/desktop/image-gallery-1.jpg';
+import yx1EarphonesGallery2 from './assets/product-yx1-earphones/desktop/image-gallery-2.jpg';
+import yx1EarphonesGallery3 from './assets/product-yx1-earphones/desktop/image-gallery-3.jpg';
+
+import xx59HeadphonesGallery1 from './assets/product-xx59-headphones/desktop/image-gallery-1.jpg';
+import xx59HeadphonesGallery2 from './assets/product-xx59-headphones/desktop/image-gallery-2.jpg';
+import xx59HeadphonesGallery3 from './assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
+
+import xx99MarkOneHeadphonesGallery1 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg';
+import xx99MarkOneHeadphonesGallery2 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg';
+import xx99MarkOneHeadphonesGallery3 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
+
+import xx99MarkTwoHeadphonesGallery1 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
+import xx99MarkTwoHeadphonesGallery2 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
+import xx99MarkTwoHeadphonesGallery3 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
+
+import zx7SpeakerGallery1 from './assets/product-zx7-speaker/desktop/image-gallery-1.jpg';
+import zx7SpeakerGallery2 from './assets/product-zx7-speaker/desktop/image-gallery-2.jpg';
+import zx7SpeakerGallery3 from './assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
+
+import zx9SpeakerGallery1 from './assets/product-zx9-speaker/desktop/image-gallery-1.jpg';
+import zx9SpeakerGallery2 from './assets/product-zx9-speaker/desktop/image-gallery-2.jpg';
+import zx9SpeakerGallery3 from './assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
+
+import xx99MarkOneHeadphones from './assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
+import xx59Headphones from './assets/shared/desktop/image-xx59-headphones.jpg';
+import zx9Speaker from './assets/shared/desktop/image-zx9-speaker.jpg';
+import xx99MarkTwoHeadphones from './assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
+import zx7Speaker from './assets/shared/desktop/image-zx7-speaker.jpg';
+
 type Props = {
   product: Product | undefined;
 };
@@ -16,6 +53,52 @@ export const ProductInfos: FC<Props> = ({ product }) => {
   const [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
+  const desktopImages: {
+    [key: string]: string;
+  } = {
+    'xx99-mark-one-headphones': xx99MarkOneHeadphones,
+    'xx59-headphones': xx59Headphones,
+    'zx9-speaker': zx9Speaker,
+    'xx99-mark-two-headphones': xx99MarkTwoHeadphones,
+    'zx7-speaker': zx7Speaker,
+  };
+
+  const firstGalleryImages = [
+    yx1EarphonesGallery1,
+    xx59HeadphonesGallery1,
+    xx99MarkOneHeadphonesGallery1,
+    xx99MarkTwoHeadphonesGallery1,
+    zx7SpeakerGallery1,
+    zx9SpeakerGallery1,
+  ];
+
+  const secondGalleryImages = [
+    yx1EarphonesGallery2,
+    xx59HeadphonesGallery2,
+    xx99MarkOneHeadphonesGallery2,
+    xx99MarkTwoHeadphonesGallery2,
+    zx7SpeakerGallery2,
+    zx9SpeakerGallery2,
+  ];
+
+  const thirdGalleryImages = [
+    yx1EarphonesGallery3,
+    xx59HeadphonesGallery3,
+    xx99MarkOneHeadphonesGallery3,
+    xx99MarkTwoHeadphonesGallery3,
+    zx7SpeakerGallery3,
+    zx9SpeakerGallery3,
+  ];
+
+  const images = [
+    yx1EarphonesMobile,
+    xx59HeadphonesMobile,
+    xx99MarkOneHeadphonesMobile,
+    xx99MarkTwoHeadphonesMobile,
+    zx7SpeakerMobile,
+    zx9SpeakerMobile,
+  ];
+
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
@@ -24,6 +107,8 @@ export const ProductInfos: FC<Props> = ({ product }) => {
     if (!product) return;
     setCartItems(product, counter);
   };
+
+  if (!product) return null;
 
   return (
     <section className="flex flex-col justify-center">
@@ -39,7 +124,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               Go Back
             </p>
             <img
-              src={'src/' + product?.image.mobile}
+              src={images[product.id - 1]}
               alt={product?.slug}
               className="w-5/6 lg:w-[550px] rounded-[8px]"
             />
@@ -115,18 +200,18 @@ export const ProductInfos: FC<Props> = ({ product }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-5/6 sm:w-3/4">
           <div className="flex flex-col gap-5">
             <img
-              src={'src/' + product?.gallery.first.desktop}
+              src={firstGalleryImages[product.id - 1]}
               alt={product?.slug}
               className="rounded-[8px]"
             />
             <img
-              src={'src/' + product?.gallery.second.desktop}
+              src={secondGalleryImages[product.id - 1]}
               alt={product?.slug}
               className="rounded-[8px]"
             />
           </div>
           <img
-            src={'src/' + product?.gallery.third.desktop}
+            src={thirdGalleryImages[product.id - 1]}
             alt={product?.slug}
             className="h-full w-auto rounded-[8px]"
           />
@@ -143,7 +228,7 @@ export const ProductInfos: FC<Props> = ({ product }) => {
               key={article.name + product.category}
             >
               <img
-                src={'src/' + article.image.desktop}
+                src={desktopImages[article.slug]}
                 alt={article.name}
                 className="w-5/6 rounded-[8px]"
               />
