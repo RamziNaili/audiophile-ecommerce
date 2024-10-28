@@ -1,11 +1,12 @@
 import { FC } from 'react';
+import BestGear from '../assets/shared/mobile/image-best-gear.jpg';
 
 export const HomeBenefits: FC = () => {
   return (
     <section className="mt-28 md:mt-40 flex justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center md:w-3/4">
         <img
-          src="src/assets/shared/mobile/image-best-gear.jpg"
+          src={BestGear}
           alt="best-gear"
           className="w-5/6 rounded-[8px] h-auto md:order-2"
         />
