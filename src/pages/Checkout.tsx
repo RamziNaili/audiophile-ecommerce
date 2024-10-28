@@ -8,6 +8,12 @@ import { Modal } from '../components/UI/Modal';
 import { Thanks } from '../components/UI/Thanks';
 
 import IconCashOnDelivery from '../assets/checkout/icon-cash-on-delivery.svg';
+import xx59Headphones from '../assets/cart/image-xx59-headphones.jpg';
+import xx99MarkOneHeadphones from '../assets/cart/image-xx99-mark-one-headphones.jpg';
+import xx99MarkTwoHeadphones from '../assets/cart/image-xx99-mark-two-headphones.jpg';
+import yx1Earphones from '../assets/cart/image-yx1-earphones.jpg';
+import zx7Speaker from '../assets/cart/image-zx7-speaker.jpg';
+import zx9Speaker from '../assets/cart/image-zx9-speaker.jpg';
 
 export const Checkout: FC = () => {
   const navigate = useNavigate();
@@ -17,6 +23,15 @@ export const Checkout: FC = () => {
 
   const openModal = () => setIsThanksOpen(true);
   const closeModal = () => setIsThanksOpen(false);
+
+  const images: Record<string, string> = {
+    'xx59-headphones': xx59Headphones,
+    'xx99-mark-one-headphones': xx99MarkOneHeadphones,
+    'xx99-mark-two-headphones': xx99MarkTwoHeadphones,
+    'yx1-earphones': yx1Earphones,
+    'zx7-speaker': zx7Speaker,
+    'zx9-speaker': zx9Speaker,
+  };
 
   return (
     <main className="bg-[#fafafa] pb-28 sm:pb-24 md:pb-48">
@@ -158,9 +173,7 @@ export const Checkout: FC = () => {
                   <div key={idx} className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <img
-                        src={
-                          'src/assets/cart/image-' + item.product.slug + '.jpg'
-                        }
+                        src={images[item.product.slug]}
                         alt={item.product.name}
                         className="w-14 rounded-[8px]"
                       />
