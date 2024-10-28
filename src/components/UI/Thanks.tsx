@@ -3,12 +3,12 @@ import { Button } from '../Button';
 import OrderConfirmation from '@/assets/checkout/icon-order-confirmation.svg?react';
 import { useCartStore } from '../../core/store/useCartStore';
 
-import xx59Headphones from 'src/assets/cart/image-xx59-headphones.jpg';
-import xx99MarkOneHeadphones from 'src/assets/cart/image-xx99-mark-one-headphones.jpg';
-import xx99MarkTwoHeadphones from 'src/assets/cart/image-xx99-mark-two-headphones.jpg';
-import yx1Earphones from 'src/assets/cart/image-yx1-earphones.jpg';
-import zx7Speaker from 'src/assets/cart/image-zx7-speaker.jpg';
-import zx9Speaker from 'src/assets/cart/image-zx9-speaker.jpg';
+import xx59Headphones from '../../assets/cart/image-xx59-headphones.jpg';
+import xx99MarkOneHeadphones from '../../assets/cart/image-xx99-mark-one-headphones.jpg';
+import xx99MarkTwoHeadphones from '../../assets/cart/image-xx99-mark-two-headphones.jpg';
+import yx1Earphones from '../../assets/cart/image-yx1-earphones.jpg';
+import zx7Speaker from '../../assets/cart/image-zx7-speaker.jpg';
+import zx9Speaker from '../../assets/cart/image-zx9-speaker.jpg';
 
 export const Thanks: FC = () => {
   const { cartItems, totalPrice } = useCartStore((state) => state);
