@@ -4,10 +4,26 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
 
+import xx59Headphones from 'src/assets/cart/image-xx59-headphones.jpg';
+import xx99MarkOneHeadphones from 'src/assets/cart/image-xx99-mark-one-headphones.jpg';
+import xx99MarkTwoHeadphones from 'src/assets/cart/image-xx99-mark-two-headphones.jpg';
+import yx1Earphones from 'src/assets/cart/image-yx1-earphones.jpg';
+import zx7Speaker from 'src/assets/cart/image-zx7-speaker.jpg';
+import zx9Speaker from 'src/assets/cart/image-zx9-speaker.jpg';
+
 export const CheckoutPopup: FC = () => {
   const { cartItems, totalItems, removeAll, totalPrice } = useCartStore(
     (state) => state
   );
+
+  const images: Record<string, string> = {
+    'xx59-headphones': xx59Headphones,
+    'xx99-mark-one-headphones': xx99MarkOneHeadphones,
+    'xx99-mark-two-headphones': xx99MarkTwoHeadphones,
+    'yx1-earphones': yx1Earphones,
+    'zx7-speaker': zx7Speaker,
+    'zx9-speaker': zx9Speaker,
+  };
 
   return (
     <div className="absolute right-0 mt-4 bg-white shadow-lg px-7 py-8 w-[75dvw] sm:w-[55dvw] md:w-[45dvw] lg:w-[375px] rounded-[8px] z-50">
@@ -27,7 +43,7 @@ export const CheckoutPopup: FC = () => {
           <div key={idx} className="flex items-center justify-between">
             <div className="flex gap-4">
               <img
-                src={'src/assets/cart/image-' + item.product.slug + '.jpg'}
+                src={images[item.product.slug]}
                 alt={item.product.name}
                 className="w-14 rounded-[8px]"
               />
