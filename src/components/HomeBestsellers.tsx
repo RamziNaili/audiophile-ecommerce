@@ -6,6 +6,9 @@ import ImageSpeaker from '../assets/home/desktop/image-speaker-zx9.png';
 import Zx7SpeakerMobile from '../assets/home/mobile/image-speaker-zx7.jpg';
 import Zx7SpeakerTablet from '../assets/home/tablet/image-speaker-zx7.jpg';
 import Zx7SpeakerDesktop from '../assets/home/desktop/image-speaker-zx7.jpg';
+import Yx1EarphonesMobile from '../assets/home/mobile/image-earphones-yx1.jpg';
+import Yx1EarphonesTablet from '../assets/home/tablet/image-earphones-yx1.jpg';
+import Yx1EarphonesDesktop from '../assets/home/desktop/image-earphones-yx1.jpg';
 
 export const HomeBestsellers: FC = () => {
   return (
@@ -31,14 +34,7 @@ export const HomeBestsellers: FC = () => {
         </div>
       </div>
 
-      {/* <div className="bg-[url('src/assets/home/mobile/image-speaker-zx7.jpg')] sm:bg-[('src/assets/home/tablet/image-speaker-zx7.jpg')] md:bg-[('src/assets/home/desktop/image-speaker-zx7.jpg')] bg-cover rounded-[8px] mt-6 w-5/6 md:w-3/4 h-[330px] pl-6 md:pl-24 flex flex-col justify-center gap-8">
-        <h2 className="font-bold text-[28px] tracking-[2px]">ZX7 SPEAKER</h2>
-        <NavLink to={`/zx7-speaker`}>
-          <Button variant="outline">see product</Button>
-        </NavLink>
-      </div> */}
       <div className="relative w-5/6 md:w-3/4 h-[330px] rounded-[8px] mt-6 flex flex-col justify-center gap-8 overflow-hidden">
-        {/* Images responsives selon la taille d'écran */}
         <img
           src={Zx7SpeakerMobile}
           alt="ZX7 Speaker"
@@ -55,7 +51,6 @@ export const HomeBestsellers: FC = () => {
           className="absolute inset-0 w-full h-full object-cover hidden md:block"
         />
 
-        {/* Contenu de la bannière */}
         <div className="relative z-10 pl-6 md:pl-24 text-white">
           <h2 className="font-bold text-[28px] tracking-[2px]">ZX7 SPEAKER</h2>
           <NavLink to={`/zx7-speaker`}>
@@ -63,8 +58,38 @@ export const HomeBestsellers: FC = () => {
           </NavLink>
         </div>
       </div>
-      <div className="w-full md:w-3/4 flex items-center flex-col md:flex-row md:gap-2.5 lg:gap-7">
+      {/* <div className="w-full md:w-3/4 flex items-center flex-col md:flex-row md:gap-2.5 lg:gap-7">
         <div className="w-5/6 md:w-full h-[200px] sm:h-[320px] mt-6 rounded-[8px] bg-[url('src/assets/home/mobile/image-earphones-yx1.jpg')] sm:bg-[url('src/assets/home/tablet/image-earphones-yx1.jpg')] md:bg-[url('src/assets/home/desktop/image-earphones-yx1.jpg')] bg-cover" />
+        <div className="w-5/6 md:w-full mt-6 bg-gray pl-6 rounded-[8px] h-[200px] sm:h-[320px] flex flex-col justify-center">
+          <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
+            YX1 EARPHONES
+          </h2>
+          <NavLink to={`/yx1-earphones`} className="mt-8 mb-10">
+            <Button variant="outline">see product</Button>
+          </NavLink>
+        </div>
+      </div> */}
+      <div className="w-full md:w-3/4 flex items-center flex-col md:flex-row md:gap-2.5 lg:gap-7">
+        {/* Image responsive */}
+        <div className="relative w-5/6 md:w-full h-[200px] sm:h-[320px] mt-6 rounded-[8px] overflow-hidden">
+          <img
+            src={Yx1EarphonesMobile}
+            alt="YX1 Earphones"
+            className="absolute inset-0 w-full h-full object-cover sm:hidden"
+          />
+          <img
+            src={Yx1EarphonesTablet}
+            alt="YX1 Earphones"
+            className="absolute inset-0 w-full h-full object-cover hidden sm:block md:hidden"
+          />
+          <img
+            src={Yx1EarphonesDesktop}
+            alt="YX1 Earphones"
+            className="absolute inset-0 w-full h-full object-cover hidden md:block"
+          />
+        </div>
+
+        {/* Contenu du produit */}
         <div className="w-5/6 md:w-full mt-6 bg-gray pl-6 rounded-[8px] h-[200px] sm:h-[320px] flex flex-col justify-center">
           <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
             YX1 EARPHONES
