@@ -2,18 +2,22 @@ import { FC } from 'react';
 import { Button } from './Button';
 import { NavLink } from 'react-router-dom';
 
+import ThumbnailHeadphone from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
+import ThumbnailSpeaker from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
+import ThumbnailEarphone from '../assets/shared/desktop/image-category-thumbnail-earphones.png';
+
 export const HomeCategorys: FC = () => {
   const categorys = [
     {
-      path: 'src/assets/shared/desktop/image-category-thumbnail-headphones.png',
+      path: ThumbnailHeadphone,
       category: 'headphones',
     },
     {
-      path: 'src/assets/shared/desktop/image-category-thumbnail-speakers.png',
+      path: ThumbnailSpeaker,
       category: 'speakers',
     },
     {
-      path: 'src/assets/shared/desktop/image-category-thumbnail-earphones.png',
+      path: ThumbnailEarphone,
       category: 'earphones',
     },
   ];

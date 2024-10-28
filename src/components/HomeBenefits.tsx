@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import BestGear from '../assets/shared/mobile/image-best-gear.jpg';
 
 export const HomeBenefits: FC = () => {

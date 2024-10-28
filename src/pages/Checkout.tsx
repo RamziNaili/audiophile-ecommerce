@@ -7,6 +7,8 @@ import { Button } from '../components/Button';
 import { Modal } from '../components/UI/Modal';
 import { Thanks } from '../components/UI/Thanks';
 
+import IconCashOnDelivery from '../assets/checkout/icon-cash-on-delivery.svg';
+
 export const Checkout: FC = () => {
   const navigate = useNavigate();
   const [isEMoney, setIsEMoney] = useState(true);
@@ -137,10 +139,7 @@ export const Checkout: FC = () => {
                 </div>
               ) : (
                 <div className="mt-8">
-                  <img
-                    src="src/assets/checkout/icon-cash-on-delivery.svg"
-                    className="mb-5"
-                  />
+                  <img src={IconCashOnDelivery} className="mb-5" />
                   <p className="font-medium text-[15px] leading-[25px] text-black/[.5]">
                     The ‘Cash on Delivery’ option enables you to pay in cash
                     when our delivery courier arrives at your residence. Just

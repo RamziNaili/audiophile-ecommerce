@@ -1,6 +1,8 @@
-import { FC } from "react";
-import { Button } from "./Button";
-import { NavLink } from "react-router-dom";
+import { FC } from 'react';
+import { Button } from './Button';
+import { NavLink } from 'react-router-dom';
+
+import ImageSpeaker from '../assets/home/desktop/image-speaker-zx9.png';
 
 export const HomeBestsellers: FC = () => {
   return (
@@ -8,7 +10,7 @@ export const HomeBestsellers: FC = () => {
       <div className="bg-primary w-5/6 md:w-3/4 rounded-[8px] grid grid-cols-1 md:grid-cols-2 items-center justify-items-center">
         {/* <Circle /> */}
         <img
-          src="src/assets/home/desktop/image-speaker-zx9.png"
+          src={ImageSpeaker}
           alt="speaker-zx9"
           className="w-[175px] h-[205px] mt-14 md:h-3/4 md:self-end"
         />
