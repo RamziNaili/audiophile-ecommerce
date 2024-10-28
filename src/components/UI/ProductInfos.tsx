@@ -13,35 +13,35 @@ import xx99MarkTwoHeadphonesMobile from '../../assets/product-xx99-mark-two-head
 import zx7SpeakerMobile from '../../assets/product-zx7-speaker/mobile/image-product.jpg';
 import zx9SpeakerMobile from '../../assets/product-zx9-speaker/mobile/image-product.jpg';
 
-import yx1EarphonesGallery1 from './assets/product-yx1-earphones/desktop/image-gallery-1.jpg';
-import yx1EarphonesGallery2 from './assets/product-yx1-earphones/desktop/image-gallery-2.jpg';
-import yx1EarphonesGallery3 from './assets/product-yx1-earphones/desktop/image-gallery-3.jpg';
+import yx1EarphonesGallery1 from '../../assets/product-yx1-earphones/desktop/image-gallery-1.jpg';
+import yx1EarphonesGallery2 from '../../assets/product-yx1-earphones/desktop/image-gallery-2.jpg';
+import yx1EarphonesGallery3 from '../../assets/product-yx1-earphones/desktop/image-gallery-3.jpg';
 
-import xx59HeadphonesGallery1 from './assets/product-xx59-headphones/desktop/image-gallery-1.jpg';
-import xx59HeadphonesGallery2 from './assets/product-xx59-headphones/desktop/image-gallery-2.jpg';
-import xx59HeadphonesGallery3 from './assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
+import xx59HeadphonesGallery1 from '../../assets/product-xx59-headphones/desktop/image-gallery-1.jpg';
+import xx59HeadphonesGallery2 from '../../assets/product-xx59-headphones/desktop/image-gallery-2.jpg';
+import xx59HeadphonesGallery3 from '../../assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
 
-import xx99MarkOneHeadphonesGallery1 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg';
-import xx99MarkOneHeadphonesGallery2 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg';
-import xx99MarkOneHeadphonesGallery3 from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
+import xx99MarkOneHeadphonesGallery1 from '../../assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg';
+import xx99MarkOneHeadphonesGallery2 from '../../assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg';
+import xx99MarkOneHeadphonesGallery3 from '../../assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
 
-import xx99MarkTwoHeadphonesGallery1 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
-import xx99MarkTwoHeadphonesGallery2 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
-import xx99MarkTwoHeadphonesGallery3 from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
+import xx99MarkTwoHeadphonesGallery1 from '../../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
+import xx99MarkTwoHeadphonesGallery2 from '../../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
+import xx99MarkTwoHeadphonesGallery3 from '../../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
 
-import zx7SpeakerGallery1 from './assets/product-zx7-speaker/desktop/image-gallery-1.jpg';
-import zx7SpeakerGallery2 from './assets/product-zx7-speaker/desktop/image-gallery-2.jpg';
-import zx7SpeakerGallery3 from './assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
+import zx7SpeakerGallery1 from '../../assets/product-zx7-speaker/desktop/image-gallery-1.jpg';
+import zx7SpeakerGallery2 from '../../assets/product-zx7-speaker/desktop/image-gallery-2.jpg';
+import zx7SpeakerGallery3 from '../../assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
 
-import zx9SpeakerGallery1 from './assets/product-zx9-speaker/desktop/image-gallery-1.jpg';
-import zx9SpeakerGallery2 from './assets/product-zx9-speaker/desktop/image-gallery-2.jpg';
-import zx9SpeakerGallery3 from './assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
+import zx9SpeakerGallery1 from '../../assets/product-zx9-speaker/desktop/image-gallery-1.jpg';
+import zx9SpeakerGallery2 from '../../assets/product-zx9-speaker/desktop/image-gallery-2.jpg';
+import zx9SpeakerGallery3 from '../../assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
 
-import xx99MarkOneHeadphones from './assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
-import xx59Headphones from './assets/shared/desktop/image-xx59-headphones.jpg';
-import zx9Speaker from './assets/shared/desktop/image-zx9-speaker.jpg';
-import xx99MarkTwoHeadphones from './assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
-import zx7Speaker from './assets/shared/desktop/image-zx7-speaker.jpg';
+import xx99MarkOneHeadphones from '../../assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
+import xx59Headphones from '../../assets/shared/desktop/image-xx59-headphones.jpg';
+import zx9Speaker from '../../assets/shared/desktop/image-zx9-speaker.jpg';
+import xx99MarkTwoHeadphones from '../../assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
+import zx7Speaker from '../../assets/shared/desktop/image-zx7-speaker.jpg';
 
 type Props = {
   product: Product | undefined;
