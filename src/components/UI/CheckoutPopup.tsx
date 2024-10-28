@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
 
-import Xx59Headphones from '../assets/cart/image-xx59-headphones.jpg';
-import Xx99MarkOneHeadphones from '../assets/cart/image-xx99-mark-one-headphones.jpg';
-import Xx99MarkTwoHeadphones from '../assets/cart/image-xx99-mark-two-headphones.jpg';
-import Yx1Earphones from '../assets/cart/image-yx1-earphones.jpg';
-import Zx7Speaker from '../assets/cart/image-zx7-speaker.jpg';
-import Zx9Speaker from '../assets/cart/image-zx9-speaker.jpg';
+import Xx59Headphones from '../../assets/cart/image-xx59-headphones.jpg';
+import Xx99MarkOneHeadphones from '../../assets/cart/image-xx99-mark-one-headphones.jpg';
+import Xx99MarkTwoHeadphones from '../../assets/cart/image-xx99-mark-two-headphones.jpg';
+import Yx1Earphones from '../../assets/cart/image-yx1-earphones.jpg';
+import Zx7Speaker from '../../assets/cart/image-zx7-speaker.jpg';
+import Zx9Speaker from '../../assets/cart/image-zx9-speaker.jpg';
 
 export const CheckoutPopup: FC = () => {
   const { cartItems, totalItems, removeAll, totalPrice } = useCartStore(
