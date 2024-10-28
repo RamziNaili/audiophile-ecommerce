@@ -58,19 +58,8 @@ export const HomeBestsellers: FC = () => {
           </NavLink>
         </div>
       </div>
-      {/* <div className="w-full md:w-3/4 flex items-center flex-col md:flex-row md:gap-2.5 lg:gap-7">
-        <div className="w-5/6 md:w-full h-[200px] sm:h-[320px] mt-6 rounded-[8px] bg-[url('src/assets/home/mobile/image-earphones-yx1.jpg')] sm:bg-[url('src/assets/home/tablet/image-earphones-yx1.jpg')] md:bg-[url('src/assets/home/desktop/image-earphones-yx1.jpg')] bg-cover" />
-        <div className="w-5/6 md:w-full mt-6 bg-gray pl-6 rounded-[8px] h-[200px] sm:h-[320px] flex flex-col justify-center">
-          <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
-            YX1 EARPHONES
-          </h2>
-          <NavLink to={`/yx1-earphones`} className="mt-8 mb-10">
-            <Button variant="outline">see product</Button>
-          </NavLink>
-        </div>
-      </div> */}
+
       <div className="w-full md:w-3/4 flex items-center flex-col md:flex-row md:gap-2.5 lg:gap-7">
-        {/* Image responsive */}
         <div className="relative w-5/6 md:w-full h-[200px] sm:h-[320px] mt-6 rounded-[8px] overflow-hidden">
           <img
             src={Yx1EarphonesMobile}
@@ -89,7 +78,6 @@ export const HomeBestsellers: FC = () => {
           />
         </div>
 
-        {/* Contenu du produit */}
         <div className="w-5/6 md:w-full mt-6 bg-gray pl-6 rounded-[8px] h-[200px] sm:h-[320px] flex flex-col justify-center">
           <h2 className="pt-10 font-bold text-[28px] tracking-[2px]">
             YX1 EARPHONES
