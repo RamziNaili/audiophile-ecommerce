@@ -1,12 +1,14 @@
-import { FC } from "react";
-import { Header } from "./Header";
-import { Button } from "./Button";
-import { NavLink } from "react-router-dom";
+import { FC } from 'react';
+import { Header } from './Header';
+import { Button } from './Button';
+import { NavLink } from 'react-router-dom';
+
+import HomeHeroMobile from '../assets/home/mobile/image-header.jpg';
 
 export const HomeHero: FC = () => {
   return (
     <section
-      className={`flex justify-center bg-[url('src/assets/home/mobile/image-header.jpg')]
+      className={`flex justify-center bg-[url(${HomeHeroMobile})]
         sm:bg-[url('src/assets/home/tablet/image-header.jpg')]
         md:bg-[url('src/assets/home/desktop/image-hero.jpg')] bg-no-repeat bg-cover w-full`}
     >
