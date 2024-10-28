@@ -3,12 +3,28 @@ import { Button } from '../Button';
 import OrderConfirmation from '@/assets/checkout/icon-order-confirmation.svg?react';
 import { useCartStore } from '../../core/store/useCartStore';
 
+import xx59Headphones from 'src/assets/cart/image-xx59-headphones.jpg';
+import xx99MarkOneHeadphones from 'src/assets/cart/image-xx99-mark-one-headphones.jpg';
+import xx99MarkTwoHeadphones from 'src/assets/cart/image-xx99-mark-two-headphones.jpg';
+import yx1Earphones from 'src/assets/cart/image-yx1-earphones.jpg';
+import zx7Speaker from 'src/assets/cart/image-zx7-speaker.jpg';
+import zx9Speaker from 'src/assets/cart/image-zx9-speaker.jpg';
+
 export const Thanks: FC = () => {
   const { cartItems, totalPrice } = useCartStore((state) => state);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
+  };
+
+  const images: Record<string, string> = {
+    'xx59-headphones': xx59Headphones,
+    'xx99-mark-one-headphones': xx99MarkOneHeadphones,
+    'xx99-mark-two-headphones': xx99MarkTwoHeadphones,
+    'yx1-earphones': yx1Earphones,
+    'zx7-speaker': zx7Speaker,
+    'zx9-speaker': zx9Speaker,
   };
 
   // Forcer le scroll vers le haut et désactiver le scroll en arrière-plan
@@ -42,7 +58,7 @@ export const Thanks: FC = () => {
             <div className="flex items-center justify-between px-6 pt-6 pb-3">
               <div className="flex items-center gap-4">
                 <img
-                  src={`src/assets/cart/image-${cartItems[0].product.slug}.jpg`}
+                  src={images[cartItems[0].product.slug]}
                   alt={cartItems[0].product.name}
                   className="w-14 rounded-[8px]"
                 />
@@ -68,7 +84,7 @@ export const Thanks: FC = () => {
                       <div className="flex items-center justify-between px-6 pt-6 pb-3">
                         <div className="flex items-center gap-4">
                           <img
-                            src={`src/assets/cart/image-${item.product.slug}.jpg`}
+                            src={images[item.product.slug]}
                             alt={item.product.name}
                             className="w-14 rounded-[8px]"
                           />
