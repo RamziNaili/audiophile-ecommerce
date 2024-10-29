@@ -18,7 +18,7 @@ export const HomeBestsellers: FC = () => {
         <img
           src={ImageSpeaker}
           alt="speaker-zx9"
-          className="w-[175px] h-[205px] mt-14 md:h-3/4 md:self-end"
+          className="w-[150px] h-[165px] mt-14 md:h-3/4 md:w-[200px] md:self-end"
         />
         <div className="flex flex-col items-center md:items-start">
           <h2 className="mt-8 text-white font-bold text-[36px] md:text-[56px] tracking-[1.29px] w-3/5 max-md:text-center leading-[40px] md:leading-[56px]">
