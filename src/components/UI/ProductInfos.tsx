@@ -99,10 +99,6 @@ export const ProductInfos: FC<Props> = ({ product }) => {
     zx9SpeakerMobile,
   ];
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
-
   const addToCart = (product: Product | undefined) => {
     if (!product) return;
     setCartItems(product, counter);

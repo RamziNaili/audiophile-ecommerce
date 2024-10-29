@@ -9,10 +9,12 @@ import xx99MarkTwoHeadphones from '../../assets/cart/image-xx99-mark-two-headpho
 import yx1Earphones from '../../assets/cart/image-yx1-earphones.jpg';
 import zx7Speaker from '../../assets/cart/image-zx7-speaker.jpg';
 import zx9Speaker from '../../assets/cart/image-zx9-speaker.jpg';
+import { useNavigate } from 'react-router-dom';
 
 export const Thanks: FC = () => {
-  const { cartItems, totalPrice } = useCartStore((state) => state);
+  const { cartItems, totalPrice, removeAll } = useCartStore((state) => state);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -27,16 +29,12 @@ export const Thanks: FC = () => {
     'zx9-speaker': zx9Speaker,
   };
 
-  // Forcer le scroll vers le haut et désactiver le scroll en arrière-plan
   useEffect(() => {
-    // Scroll vers le haut
     window.scrollTo(0, 0);
 
-    // Désactiver le scroll en arrière-plan
     document.body.style.overflow = 'hidden';
 
     return () => {
-      // Réactiver le scroll lorsque la modal est fermée
       document.body.style.overflow = '';
     };
   }, []);
@@ -133,7 +131,15 @@ export const Thanks: FC = () => {
             </p>
           </div>
         </div>
-        <Button className="w-full">back to home</Button>
+        <Button
+          className="w-full"
+          onClick={() => {
+            removeAll();
+            navigate('/');
+          }}
+        >
+          back to home
+        </Button>
       </div>
     </div>
   );
