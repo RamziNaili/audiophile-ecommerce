@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { Product } from '../../types/types';
 import { Button } from '../Button';
 import { Numbers } from '../Numbers';
@@ -48,7 +48,6 @@ type Props = {
 };
 
 export const ProductInfos: FC<Props> = ({ product }) => {
-  const { cartItems } = useCartStore((state) => state);
   const setCartItems = useCartStore((state) => state.setCartItems);
   const [counter, setCounter] = useState(1);
   const navigate = useNavigate();
